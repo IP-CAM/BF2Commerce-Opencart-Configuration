@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           5.6.17 - MySQL Community Server (GPL)
+-- Versão do servidor:           5.7.14 - MySQL Community Server (GPL)
 -- OS do Servidor:               Win64
 -- HeidiSQL Versão:              9.3.0.4984
 -- --------------------------------------------------------
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `bf2_attribute_description` (
   PRIMARY KEY (`attribute_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_attribute_description: 11 rows
+-- Copiando dados para a tabela bf2commerce.bf2_attribute_description: 22 rows
 /*!40000 ALTER TABLE `bf2_attribute_description` DISABLE KEYS */;
 INSERT INTO `bf2_attribute_description` (`attribute_id`, `language_id`, `name`) VALUES
 	(1, 1, 'Description'),
@@ -235,7 +235,18 @@ INSERT INTO `bf2_attribute_description` (`attribute_id`, `language_id`, `name`) 
 	(9, 1, 'test 6'),
 	(10, 1, 'test 7'),
 	(11, 1, 'test 8'),
-	(3, 1, 'Clockspeed');
+	(3, 1, 'Clockspeed'),
+	(1, 2, 'Description'),
+	(2, 2, 'No. of Cores'),
+	(4, 2, 'test 1'),
+	(5, 2, 'test 2'),
+	(6, 2, 'test 3'),
+	(7, 2, 'test 4'),
+	(8, 2, 'test 5'),
+	(9, 2, 'test 6'),
+	(10, 2, 'test 7'),
+	(11, 2, 'test 8'),
+	(3, 2, 'Clockspeed');
 /*!40000 ALTER TABLE `bf2_attribute_description` ENABLE KEYS */;
 
 
@@ -266,13 +277,17 @@ CREATE TABLE IF NOT EXISTS `bf2_attribute_group_description` (
   PRIMARY KEY (`attribute_group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_attribute_group_description: 4 rows
+-- Copiando dados para a tabela bf2commerce.bf2_attribute_group_description: 8 rows
 /*!40000 ALTER TABLE `bf2_attribute_group_description` DISABLE KEYS */;
 INSERT INTO `bf2_attribute_group_description` (`attribute_group_id`, `language_id`, `name`) VALUES
 	(3, 1, 'Memory'),
 	(4, 1, 'Technical'),
 	(5, 1, 'Motherboard'),
-	(6, 1, 'Processor');
+	(6, 1, 'Processor'),
+	(3, 2, 'Memory'),
+	(4, 2, 'Technical'),
+	(5, 2, 'Motherboard'),
+	(6, 2, 'Processor');
 /*!40000 ALTER TABLE `bf2_attribute_group_description` ENABLE KEYS */;
 
 
@@ -305,9 +320,9 @@ CREATE TABLE IF NOT EXISTS `bf2_banner_image` (
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`banner_image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_banner_image: 14 rows
+-- Copiando dados para a tabela bf2commerce.bf2_banner_image: 42 rows
 /*!40000 ALTER TABLE `bf2_banner_image` DISABLE KEYS */;
 INSERT INTO `bf2_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `title`, `link`, `image`, `sort_order`) VALUES
 	(79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0),
@@ -323,7 +338,35 @@ INSERT INTO `bf2_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `
 	(90, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
 	(80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0),
 	(97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
-	(98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
+	(98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0),
+	(99, 7, 2, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0),
+	(100, 6, 2, 'HP Banner', 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
+	(101, 8, 2, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
+	(102, 8, 2, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
+	(103, 8, 2, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
+	(104, 8, 2, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0),
+	(105, 8, 2, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0),
+	(106, 8, 2, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0),
+	(107, 8, 2, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
+	(108, 8, 2, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
+	(109, 8, 2, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
+	(110, 7, 2, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0),
+	(111, 8, 2, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
+	(112, 8, 2, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0),
+	(113, 7, 2, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0),
+	(114, 6, 2, 'HP Banner', 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
+	(115, 8, 2, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
+	(116, 8, 2, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
+	(117, 8, 2, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
+	(118, 8, 2, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0),
+	(119, 8, 2, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0),
+	(120, 8, 2, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0),
+	(121, 8, 2, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
+	(122, 8, 2, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
+	(123, 8, 2, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
+	(124, 7, 2, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0),
+	(125, 8, 2, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
+	(126, 8, 2, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
 /*!40000 ALTER TABLE `bf2_banner_image` ENABLE KEYS */;
 
 
@@ -422,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `bf2_category_description` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_category_description: 38 rows
+-- Copiando dados para a tabela bf2commerce.bf2_category_description: 76 rows
 /*!40000 ALTER TABLE `bf2_category_description` DISABLE KEYS */;
 INSERT INTO `bf2_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 	(28, 1, 'Monitors', '', 'Monitors', '', ''),
@@ -462,7 +505,45 @@ INSERT INTO `bf2_category_description` (`category_id`, `language_id`, `name`, `d
 	(55, 1, 'test 23', '', 'test 23', '', ''),
 	(56, 1, 'test 24', '', 'test 24', '', ''),
 	(57, 1, 'Tablets', '', 'Tablets', '', ''),
-	(58, 1, 'test 25', '', 'test 25', '', '');
+	(58, 1, 'test 25', '', 'test 25', '', ''),
+	(28, 2, 'Monitors', '', 'Monitors', '', ''),
+	(33, 2, 'Cameras', '', 'Cameras', '', ''),
+	(32, 2, 'Web Cameras', '', 'Web Cameras', '', ''),
+	(31, 2, 'Scanners', '', 'Scanners', '', ''),
+	(30, 2, 'Printers', '', 'Printers', '', ''),
+	(29, 2, 'Mice and Trackballs', '', 'Mice and Trackballs', '', ''),
+	(27, 2, 'Mac', '', 'Mac', '', ''),
+	(26, 2, 'PC', '', 'PC', '', ''),
+	(17, 2, 'Software', '', 'Software', '', ''),
+	(25, 2, 'Components', '', 'Components', '', ''),
+	(24, 2, 'Phones &amp; PDAs', '', 'Phones &amp; PDAs', '', ''),
+	(20, 2, 'Desktops', '&lt;p&gt;\r\n	Example of category description text&lt;/p&gt;\r\n', 'Desktops', 'Example of category description', ''),
+	(35, 2, 'test 1', '', 'test 1', '', ''),
+	(36, 2, 'test 2', '', 'test 2', '', ''),
+	(37, 2, 'test 5', '', 'test 5', '', ''),
+	(38, 2, 'test 4', '', 'test 4', '', ''),
+	(39, 2, 'test 6', '', 'test 6', '', ''),
+	(40, 2, 'test 7', '', 'test 7', '', ''),
+	(41, 2, 'test 8', '', 'test 8', '', ''),
+	(42, 2, 'test 9', '', 'test 9', '', ''),
+	(43, 2, 'test 11', '', 'test 11', '', ''),
+	(34, 2, 'MP3 Players', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'MP3 Players', '', ''),
+	(18, 2, 'Laptops &amp; Notebooks', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'Laptops &amp; Notebooks', '', ''),
+	(44, 2, 'test 12', '', 'test 12', '', ''),
+	(45, 2, 'Windows', '', 'Windows', '', ''),
+	(46, 2, 'Macs', '', 'Macs', '', ''),
+	(47, 2, 'test 15', '', 'test 15', '', ''),
+	(48, 2, 'test 16', '', 'test 16', '', ''),
+	(49, 2, 'test 17', '', 'test 17', '', ''),
+	(50, 2, 'test 18', '', 'test 18', '', ''),
+	(51, 2, 'test 19', '', 'test 19', '', ''),
+	(52, 2, 'test 20', '', 'test 20', '', ''),
+	(53, 2, 'test 21', '', 'test 21', '', ''),
+	(54, 2, 'test 22', '', 'test 22', '', ''),
+	(55, 2, 'test 23', '', 'test 23', '', ''),
+	(56, 2, 'test 24', '', 'test 24', '', ''),
+	(57, 2, 'Tablets', '', 'Tablets', '', ''),
+	(58, 2, 'test 25', '', 'test 25', '', '');
 /*!40000 ALTER TABLE `bf2_category_description` ENABLE KEYS */;
 
 
@@ -676,7 +757,7 @@ INSERT INTO `bf2_country` (`country_id`, `name`, `iso_code_2`, `iso_code_3`, `ad
 	(27, 'Bosnia and Herzegovina', 'BA', 'BIH', '', 0, 1),
 	(28, 'Botswana', 'BW', 'BWA', '', 0, 1),
 	(29, 'Bouvet Island', 'BV', 'BVT', '', 0, 1),
-	(30, 'Brazil', 'BR', 'BRA', '', 0, 1),
+	(30, 'Brasil', 'BR', 'BRA', '', 1, 1),
 	(31, 'British Indian Ocean Territory', 'IO', 'IOT', '', 0, 1),
 	(32, 'Brunei Darussalam', 'BN', 'BRN', '', 0, 1),
 	(33, 'Bulgaria', 'BG', 'BGR', '', 0, 1),
@@ -989,14 +1070,15 @@ CREATE TABLE IF NOT EXISTS `bf2_currency` (
   `status` tinyint(1) NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`currency_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_currency: 3 rows
+-- Copiando dados para a tabela bf2commerce.bf2_currency: 4 rows
 /*!40000 ALTER TABLE `bf2_currency` DISABLE KEYS */;
 INSERT INTO `bf2_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-	(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.61250001, 1, '2014-09-25 14:40:00'),
-	(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2014-09-25 14:40:00'),
-	(3, 'Euro', 'EUR', '', '€', '2', 0.78460002, 1, '2014-09-25 14:40:00');
+	(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.23649999, 1, '2016-11-23 19:09:12'),
+	(2, 'US Dollar', 'USD', '$', '', '2', 0.29429999, 1, '2016-11-23 19:09:12'),
+	(3, 'Euro', 'EUR', '', '€', '2', 0.27930000, 1, '2016-11-23 19:09:12'),
+	(4, 'Real', 'BRL', 'R$', '', '2', 1.00000000, 1, '2016-11-23 19:09:12');
 /*!40000 ALTER TABLE `bf2_currency` ENABLE KEYS */;
 
 
@@ -1077,10 +1159,11 @@ CREATE TABLE IF NOT EXISTS `bf2_customer_group_description` (
   PRIMARY KEY (`customer_group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_customer_group_description: 1 rows
+-- Copiando dados para a tabela bf2commerce.bf2_customer_group_description: 2 rows
 /*!40000 ALTER TABLE `bf2_customer_group_description` DISABLE KEYS */;
 INSERT INTO `bf2_customer_group_description` (`customer_group_id`, `language_id`, `name`, `description`) VALUES
-	(1, 1, 'Default', 'test');
+	(1, 2, 'Varejo', ''),
+	(1, 1, 'Default', '');
 /*!40000 ALTER TABLE `bf2_customer_group_description` ENABLE KEYS */;
 
 
@@ -1451,13 +1534,12 @@ CREATE TABLE IF NOT EXISTS `bf2_geo_zone` (
   `date_modified` datetime NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`geo_zone_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_geo_zone: 2 rows
 /*!40000 ALTER TABLE `bf2_geo_zone` DISABLE KEYS */;
 INSERT INTO `bf2_geo_zone` (`geo_zone_id`, `name`, `description`, `date_modified`, `date_added`) VALUES
-	(3, 'UK VAT Zone', 'UK VAT', '2010-02-26 22:33:24', '2009-01-06 23:26:25'),
-	(4, 'UK Shipping', 'UK Shipping Zones', '2010-12-15 15:18:13', '2009-06-23 01:14:53');
+	(5, 'Brasil', 'Todo o Brasil', '0000-00-00 00:00:00', '2016-11-23 17:13:35');
 /*!40000 ALTER TABLE `bf2_geo_zone` ENABLE KEYS */;
 
 
@@ -1494,10 +1576,14 @@ CREATE TABLE IF NOT EXISTS `bf2_information_description` (
   PRIMARY KEY (`information_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_information_description: 4 rows
+-- Copiando dados para a tabela bf2commerce.bf2_information_description: 8 rows
 /*!40000 ALTER TABLE `bf2_information_description` DISABLE KEYS */;
 INSERT INTO `bf2_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 	(4, 1, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', 'About Us', '', ''),
+	(5, 2, 'Termos e Condições de Uso', '&lt;p&gt;\r\n	Termos e Condições de Uso&lt;/p&gt;\r\n', 'Termos e Condições de Uso', '', ''),
+	(3, 2, 'Política de Privacidade', 'Política de Privacidade\r\n', 'Política de Privacidade', '', ''),
+	(6, 2, 'Informações de Entrega', '&lt;p&gt;\r\n	Informações de Entrega&lt;/p&gt;\r\n', 'Informações de Entrega', '', ''),
+	(4, 2, 'Sobre', '&lt;p&gt;\r\n	Sobre&lt;/p&gt;\r\n', 'Sobre', '', ''),
 	(5, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', ''),
 	(3, 1, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', ''),
 	(6, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '');
@@ -1515,6 +1601,11 @@ CREATE TABLE IF NOT EXISTS `bf2_information_to_layout` (
 
 -- Copiando dados para a tabela bf2commerce.bf2_information_to_layout: 0 rows
 /*!40000 ALTER TABLE `bf2_information_to_layout` DISABLE KEYS */;
+INSERT INTO `bf2_information_to_layout` (`information_id`, `store_id`, `layout_id`) VALUES
+	(4, 0, 0),
+	(3, 0, 0),
+	(5, 0, 0),
+	(6, 0, 0);
 /*!40000 ALTER TABLE `bf2_information_to_layout` ENABLE KEYS */;
 
 
@@ -1549,12 +1640,13 @@ CREATE TABLE IF NOT EXISTS `bf2_language` (
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`language_id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_language: 1 rows
+-- Copiando dados para a tabela bf2commerce.bf2_language: 2 rows
 /*!40000 ALTER TABLE `bf2_language` DISABLE KEYS */;
 INSERT INTO `bf2_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
-	(1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1);
+	(1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1),
+	(2, 'Português (BR)', 'pt-br', 'pt_BR.UTF-8,pt_BR,pt-br,pt_br,portuguese', '', '', 1, 1);
 /*!40000 ALTER TABLE `bf2_language` ENABLE KEYS */;
 
 
@@ -1569,19 +1661,19 @@ CREATE TABLE IF NOT EXISTS `bf2_layout` (
 -- Copiando dados para a tabela bf2commerce.bf2_layout: 13 rows
 /*!40000 ALTER TABLE `bf2_layout` DISABLE KEYS */;
 INSERT INTO `bf2_layout` (`layout_id`, `name`) VALUES
-	(1, 'Home'),
-	(2, 'Product'),
-	(3, 'Category'),
-	(4, 'Default'),
-	(5, 'Manufacturer'),
-	(6, 'Account'),
-	(7, 'Checkout'),
-	(8, 'Contact'),
-	(9, 'Sitemap'),
-	(10, 'Affiliate'),
-	(11, 'Information'),
-	(12, 'Compare'),
-	(13, 'Search');
+	(1, 'Principal'),
+	(2, 'Produtos'),
+	(3, 'Departamentos'),
+	(4, 'Padrão'),
+	(5, 'Marcas'),
+	(6, 'Conta'),
+	(7, 'Finalizar pedido'),
+	(8, 'Contate-nos'),
+	(9, 'Mapa do Site'),
+	(10, 'Afiliados'),
+	(11, 'Páginas de informações'),
+	(12, 'Comparar produtos'),
+	(13, 'Pesquisa de produtos');
 /*!40000 ALTER TABLE `bf2_layout` ENABLE KEYS */;
 
 
@@ -1594,21 +1686,21 @@ CREATE TABLE IF NOT EXISTS `bf2_layout_module` (
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`layout_module_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_layout_module: 10 rows
 /*!40000 ALTER TABLE `bf2_layout_module` DISABLE KEYS */;
 INSERT INTO `bf2_layout_module` (`layout_module_id`, `layout_id`, `code`, `position`, `sort_order`) VALUES
-	(2, 4, '0', 'content_top', 0),
-	(3, 4, '0', 'content_top', 1),
-	(20, 5, '0', 'column_left', 2),
-	(69, 10, 'affiliate', 'column_right', 1),
-	(68, 6, 'account', 'column_right', 1),
-	(67, 1, 'carousel.29', 'content_top', 3),
-	(66, 1, 'slideshow.27', 'content_top', 1),
-	(65, 1, 'featured.28', 'content_top', 2),
-	(72, 3, 'category', 'column_left', 1),
-	(73, 3, 'banner.30', 'column_left', 2);
+	(79, 4, 'account', 'content_top', 1),
+	(78, 4, 'account', 'content_top', 0),
+	(83, 5, 'account', 'column_left', 2),
+	(75, 10, 'account', 'column_right', 1),
+	(74, 6, 'account', 'column_right', 1),
+	(81, 1, 'featured.28', 'content_top', 2),
+	(80, 1, 'slideshow.27', 'content_top', 1),
+	(77, 3, 'banner.30', 'column_left', 2),
+	(76, 3, 'category', 'column_left', 1),
+	(82, 1, 'carousel.29', 'content_top', 3);
 /*!40000 ALTER TABLE `bf2_layout_module` ENABLE KEYS */;
 
 
@@ -1620,24 +1712,24 @@ CREATE TABLE IF NOT EXISTS `bf2_layout_route` (
   `store_id` int(11) NOT NULL,
   `route` varchar(64) NOT NULL,
   PRIMARY KEY (`layout_route_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_layout_route: 13 rows
 /*!40000 ALTER TABLE `bf2_layout_route` DISABLE KEYS */;
 INSERT INTO `bf2_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `route`) VALUES
-	(38, 6, 0, 'account/%'),
-	(17, 10, 0, 'affiliate/%'),
-	(44, 3, 0, 'product/category'),
-	(42, 1, 0, 'common/home'),
-	(20, 2, 0, 'product/product'),
-	(24, 11, 0, 'information/information'),
-	(23, 7, 0, 'checkout/%'),
-	(31, 8, 0, 'information/contact'),
-	(32, 9, 0, 'information/sitemap'),
-	(34, 4, 0, ''),
-	(45, 5, 0, 'product/manufacturer'),
-	(52, 12, 0, 'product/compare'),
-	(53, 13, 0, 'product/search');
+	(54, 6, 0, 'account/%'),
+	(55, 10, 0, 'affiliate/%'),
+	(56, 3, 0, 'product/category'),
+	(61, 1, 0, 'common/home'),
+	(64, 2, 0, 'product/product'),
+	(62, 11, 0, 'information/information'),
+	(57, 7, 0, 'checkout/%'),
+	(59, 8, 0, 'information/contact'),
+	(66, 9, 0, 'information/sitemap'),
+	(60, 4, 0, ''),
+	(63, 5, 0, 'product/manufacturer'),
+	(58, 12, 0, 'product/compare'),
+	(65, 13, 0, 'product/search');
 /*!40000 ALTER TABLE `bf2_layout_route` ENABLE KEYS */;
 
 
@@ -1668,9 +1760,12 @@ CREATE TABLE IF NOT EXISTS `bf2_length_class_description` (
   PRIMARY KEY (`length_class_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_length_class_description: 3 rows
+-- Copiando dados para a tabela bf2commerce.bf2_length_class_description: 6 rows
 /*!40000 ALTER TABLE `bf2_length_class_description` DISABLE KEYS */;
 INSERT INTO `bf2_length_class_description` (`length_class_id`, `language_id`, `title`, `unit`) VALUES
+	(1, 2, 'Centímetro', 'cm'),
+	(2, 2, 'Milímetro', 'mm'),
+	(3, 2, 'Polegada', 'in'),
 	(1, 1, 'Centimeter', 'cm'),
 	(2, 1, 'Millimeter', 'mm'),
 	(3, 1, 'Inch', 'in');
@@ -1817,10 +1912,12 @@ CREATE TABLE IF NOT EXISTS `bf2_modification` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`modification_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_modification: 0 rows
+-- Copiando dados para a tabela bf2commerce.bf2_modification: 1 rows
 /*!40000 ALTER TABLE `bf2_modification` DISABLE KEYS */;
+INSERT INTO `bf2_modification` (`modification_id`, `name`, `code`, `author`, `version`, `link`, `xml`, `status`, `date_added`) VALUES
+	(1, 'Instalador sem FTP', 'instalador-sem-ftp', 'OpenCart Brasil', '1.3', 'http://www.opencartbrasil.com.br', '<?xml version="1.0" encoding="utf-8"?>\n<modification>\n  <name>Instalador sem FTP</name>\n  <code>instalador-sem-ftp</code>\n  <version>1.3</version>\n  <author>OpenCart Brasil</author>\n  <link>http://www.opencartbrasil.com.br</link>\n  <file path="admin/controller/extension/installer.php">\n    <operation>\n      <search>\n	    <![CDATA[public function ftp() {]]>\n      </search>\n      <add position="replace">\n        <![CDATA[public function oldftp() {]]>\n      </add>\n    </operation>\n    <operation>\n      <search>\n	    <![CDATA[public function sql() {]]>\n      </search>\n      <add position="before">\n        <![CDATA[\n	public function ftp() {\n		$this->load->language(\'extension/installer\');\n\n		$json = array();\n\n		if (!$this->user->hasPermission(\'modify\', \'extension/installer\')) {\n			$json[\'error\'] = $this->language->get(\'error_permission\');\n		}\n		\n		if (VERSION == \'2.0.0.0\') {\n		    $directory = DIR_DOWNLOAD  . str_replace(array(\'../\', \'..\\\\\', \'..\'), \'\', $this->request->post[\'path\']) . \'/upload/\';\n		} else {\n			$directory = DIR_UPLOAD . str_replace(array(\'../\', \'..\\\\\', \'..\'), \'\', $this->request->post[\'path\']) . \'/upload/\';\n		}\n\n		if (!is_dir($directory)) {\n			$json[\'error\'] = $this->language->get(\'error_directory\');\n		}\n\n		if (!$json) {\n			$files = array();\n\n			$path = array($directory . \'*\');\n\n			while (count($path) != 0) {\n				$next = array_shift($path);\n\n				foreach ((array)glob($next) as $file) {\n					if (is_dir($file)) {\n						$path[] = $file . \'/*\';\n					}\n\n					$files[] = $file;\n				}\n			}\n\n			if ($this->config->get(\'config_ftp_status\')) {\n				$connection = ftp_connect($this->config->get(\'config_ftp_hostname\'), $this->config->get(\'config_ftp_port\'));\n\n				if ($connection) {\n					$login = ftp_login($connection, $this->config->get(\'config_ftp_username\'), $this->config->get(\'config_ftp_password\'));\n\n					if ($login) {\n						if ($this->config->get(\'config_ftp_root\')) {\n							$root = ftp_chdir($connection, $this->config->get(\'config_ftp_root\'));\n						} else {\n							$root = ftp_chdir($connection, \'/\');\n						}\n\n						ftp_pasv($connection, true);\n\n						if ($root) {\n							foreach ($files as $file) {\n								$destination = substr($file, strlen($directory));\n\n								if (substr($destination, 0, 5) == \'admin\') {\n									$destination = basename(DIR_APPLICATION) . substr($destination, 5);\n								}\n\n								if (substr($destination, 0, 7) == \'catalog\') {\n									$destination = basename(DIR_CATALOG) . substr($destination, 7);\n								}\n\n								if (substr($destination, 0, 5) == \'image\') {\n									$destination = basename(DIR_IMAGE) . substr($destination, 5);\n								}\n\n								if (substr($destination, 0, 6) == \'system\') {\n									$destination = basename(DIR_SYSTEM) . substr($destination, 6);\n								}\n\n								if (is_dir($file)) {\n									$list = ftp_nlist($connection, substr($destination, 0, strrpos($destination, \'/\')));\n\n									$list_data = array();\n\n									foreach ($list as $list) {\n										$list_data[] = basename($list);\n									}\n\n									if (!in_array(basename($destination), $list_data)) {\n										if (!ftp_mkdir($connection, $destination)) {\n											$json[\'error\'] = sprintf($this->language->get(\'error_ftp_directory\'), $destination);\n										}\n									}\n								}\n\n								if (is_file($file)) {\n									if (!ftp_put($connection, $destination, $file, FTP_BINARY)) {\n										$json[\'error\'] = sprintf($this->language->get(\'error_ftp_file\'), $file);\n									}\n								}\n							}\n						} else {\n							$json[\'error\'] = sprintf($this->language->get(\'error_ftp_root\'), $root);\n						}\n					} else {\n						$json[\'error\'] = sprintf($this->language->get(\'error_ftp_login\'), $this->config->get(\'config_ftp_username\'));\n					}\n\n					ftp_close($connection);\n				} else {\n					$json[\'error\'] = sprintf($this->language->get(\'error_ftp_connection\'), $this->config->get(\'config_ftp_hostname\'), $this->config->get(\'config_ftp_port\'));\n				}\n			} else {\n				$root = dirname(DIR_APPLICATION) . \'/\';\n\n				foreach ($files as $file) {\n					$destination = substr($file, strlen($directory));\n\n					if (substr($destination, 0, 5) == \'admin\') {\n						$destination = DIR_APPLICATION . substr($destination, 5);\n					} else if (substr($destination, 0, 7) == \'catalog\') {\n						$destination = DIR_CATALOG . substr($destination, 7);\n					} else if (substr($destination, 0, 5) == \'image\') {\n						$destination = DIR_IMAGE . substr($destination, 5);\n					} else if (substr($destination, 0, 6) == \'system\') {\n						$destination = DIR_SYSTEM . substr($destination, 6);\n					} else {\n						$destination = $root.$destination;\n					}\n\n					if (is_dir($file)) {\n						if (!file_exists($destination)) {\n							if (!mkdir($destination)) {\n								$json[\'error\'] = sprintf($this->language->get(\'error_ftp_directory\'), $destination);\n							}\n						}\n					}\n\n					if (is_file($file)) {\n						if (!copy($file, $destination)) {\n							$json[\'error\'] = sprintf($this->language->get(\'error_ftp_file\'), $file);\n						}\n					}\n				}\n			}\n		}\n\n		$this->response->addHeader(\'Content-Type: application/json\');\n		$this->response->setOutput(json_encode($json));\n	}\n		]]>\n      </add>\n    </operation>\n  </file>\n</modification>\n', 1, '2016-11-23 16:19:00');
 /*!40000 ALTER TABLE `bf2_modification` ENABLE KEYS */;
 
 
@@ -1880,7 +1977,7 @@ CREATE TABLE IF NOT EXISTS `bf2_option_description` (
   PRIMARY KEY (`option_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_option_description: 11 rows
+-- Copiando dados para a tabela bf2commerce.bf2_option_description: 22 rows
 /*!40000 ALTER TABLE `bf2_option_description` DISABLE KEYS */;
 INSERT INTO `bf2_option_description` (`option_id`, `language_id`, `name`) VALUES
 	(1, 1, 'Radio'),
@@ -1893,7 +1990,18 @@ INSERT INTO `bf2_option_description` (`option_id`, `language_id`, `name`) VALUES
 	(9, 1, 'Time'),
 	(10, 1, 'Date &amp; Time'),
 	(12, 1, 'Delivery Date'),
-	(11, 1, 'Size');
+	(11, 1, 'Size'),
+	(1, 2, 'Radio'),
+	(2, 2, 'Checkbox'),
+	(4, 2, 'Text'),
+	(6, 2, 'Textarea'),
+	(8, 2, 'Date'),
+	(7, 2, 'File'),
+	(5, 2, 'Select'),
+	(9, 2, 'Time'),
+	(10, 2, 'Date &amp; Time'),
+	(12, 2, 'Delivery Date'),
+	(11, 2, 'Size');
 /*!40000 ALTER TABLE `bf2_option_description` ENABLE KEYS */;
 
 
@@ -1937,7 +2045,7 @@ CREATE TABLE IF NOT EXISTS `bf2_option_value_description` (
   PRIMARY KEY (`option_value_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_option_value_description: 14 rows
+-- Copiando dados para a tabela bf2commerce.bf2_option_value_description: 28 rows
 /*!40000 ALTER TABLE `bf2_option_value_description` DISABLE KEYS */;
 INSERT INTO `bf2_option_value_description` (`option_value_id`, `language_id`, `option_id`, `name`) VALUES
 	(43, 1, 1, 'Large'),
@@ -1953,7 +2061,21 @@ INSERT INTO `bf2_option_value_description` (`option_value_id`, `language_id`, `o
 	(24, 1, 2, 'Checkbox 2'),
 	(48, 1, 11, 'Large'),
 	(47, 1, 11, 'Medium'),
-	(46, 1, 11, 'Small');
+	(46, 1, 11, 'Small'),
+	(43, 2, 1, 'Large'),
+	(32, 2, 1, 'Small'),
+	(45, 2, 2, 'Checkbox 4'),
+	(44, 2, 2, 'Checkbox 3'),
+	(31, 2, 1, 'Medium'),
+	(42, 2, 5, 'Yellow'),
+	(41, 2, 5, 'Green'),
+	(39, 2, 5, 'Red'),
+	(40, 2, 5, 'Blue'),
+	(23, 2, 2, 'Checkbox 1'),
+	(24, 2, 2, 'Checkbox 2'),
+	(48, 2, 11, 'Large'),
+	(47, 2, 11, 'Medium'),
+	(46, 2, 11, 'Small');
 /*!40000 ALTER TABLE `bf2_option_value_description` ENABLE KEYS */;
 
 
@@ -2160,11 +2282,25 @@ CREATE TABLE IF NOT EXISTS `bf2_order_status` (
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`order_status_id`,`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_order_status: 14 rows
+-- Copiando dados para a tabela bf2commerce.bf2_order_status: 28 rows
 /*!40000 ALTER TABLE `bf2_order_status` DISABLE KEYS */;
 INSERT INTO `bf2_order_status` (`order_status_id`, `language_id`, `name`) VALUES
+	(2, 2, 'Processando'),
+	(3, 2, 'Despachado'),
+	(7, 2, 'Cancelado'),
+	(5, 2, 'Completo'),
+	(8, 2, 'Negado'),
+	(9, 2, 'Cancelamento Revertido'),
+	(10, 2, 'Não Aprovado'),
+	(11, 2, 'Reembolsado'),
+	(12, 2, 'Estornado'),
+	(13, 2, 'Cancelado pela Operadora'),
+	(1, 2, 'Aguardando Pagamento'),
+	(16, 2, 'Anulado'),
+	(15, 2, 'Processado'),
+	(14, 2, 'Expirado'),
 	(2, 1, 'Processing'),
 	(3, 1, 'Shipped'),
 	(7, 1, 'Canceled'),
@@ -2178,7 +2314,13 @@ INSERT INTO `bf2_order_status` (`order_status_id`, `language_id`, `name`) VALUES
 	(1, 1, 'Pending'),
 	(16, 1, 'Voided'),
 	(15, 1, 'Processed'),
-	(14, 1, 'Expired');
+	(14, 1, 'Expired'),
+	(17, 1, 'Delivered'),
+	(17, 2, 'Entregue'),
+	(18, 1, 'Sent'),
+	(18, 2, 'Enviado'),
+	(19, 1, 'Payment Confirmed'),
+	(19, 2, 'Pagamento Confirmado');
 /*!40000 ALTER TABLE `bf2_order_status` ENABLE KEYS */;
 
 
@@ -2263,25 +2405,25 @@ CREATE TABLE IF NOT EXISTS `bf2_product` (
 -- Copiando dados para a tabela bf2commerce.bf2_product: 19 rows
 /*!40000 ALTER TABLE `bf2_product` DISABLE KEYS */;
 INSERT INTO `bf2_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
-	(28, 'Product 1', '', '', '', '', '', '', '', 939, 7, 'catalog/demo/htc_touch_hd_1.jpg', 5, 1, 100.0000, 200, 9, '2009-02-03', 146.40000000, 2, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 16:06:50', '2011-09-30 01:05:39'),
-	(29, 'Product 2', '', '', '', '', '', '', '', 999, 6, 'catalog/demo/palm_treo_pro_1.jpg', 6, 1, 279.9900, 0, 9, '2009-02-03', 133.00000000, 2, 0.00000000, 0.00000000, 0.00000000, 3, 1, 1, 0, 1, 0, '2009-02-03 16:42:17', '2011-09-30 01:06:08'),
-	(30, 'Product 3', '', '', '', '', '', '', '', 7, 6, 'catalog/demo/canon_eos_5d_1.jpg', 9, 1, 100.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 16:59:00', '2011-09-30 01:05:23'),
-	(31, 'Product 4', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/nikon_d300_1.jpg', 0, 1, 80.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 3, 1, 1, 0, 1, 0, '2009-02-03 17:00:10', '2011-09-30 01:06:00'),
-	(32, 'Product 5', '', '', '', '', '', '', '', 999, 6, 'catalog/demo/ipod_touch_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 17:07:26', '2011-09-30 01:07:22'),
-	(33, 'Product 6', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/samsung_syncmaster_941bw.jpg', 0, 1, 200.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 17:08:31', '2011-09-30 01:06:29'),
-	(34, 'Product 7', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/ipod_shuffle_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 18:07:54', '2011-09-30 01:07:17'),
-	(35, 'Product 8', '', '', '', '', '', '', '', 1000, 5, '', 0, 0, 100.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 18:08:31', '2011-09-30 01:06:17'),
-	(36, 'Product 9', '', '', '', '', '', '', '', 994, 6, 'catalog/demo/ipod_nano_1.jpg', 8, 0, 100.0000, 100, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 18:09:19', '2011-09-30 01:07:12'),
-	(40, 'product 11', '', '', '', '', '', '', '', 970, 5, 'catalog/demo/iphone_1.jpg', 8, 1, 101.0000, 0, 9, '2009-02-03', 10.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 21:07:12', '2011-09-30 01:06:53'),
-	(41, 'Product 14', '', '', '', '', '', '', '', 977, 5, 'catalog/demo/imac_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 21:07:26', '2011-09-30 01:06:44'),
-	(42, 'Product 15', '', '', '', '', '', '', '', 990, 5, 'catalog/demo/apple_cinema_30.jpg', 8, 1, 100.0000, 400, 9, '2009-02-04', 12.50000000, 1, 1.00000000, 2.00000000, 3.00000000, 1, 1, 2, 0, 1, 0, '2009-02-03 21:07:37', '2011-09-30 00:46:19'),
-	(43, 'Product 16', '', '', '', '', '', '', '', 929, 5, 'catalog/demo/macbook_1.jpg', 8, 0, 500.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:07:49', '2011-09-30 01:05:46'),
-	(44, 'Product 17', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/macbook_air_1.jpg', 8, 1, 1000.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:00', '2011-09-30 01:05:53'),
-	(45, 'Product 18', '', '', '', '', '', '', '', 998, 5, 'catalog/demo/macbook_pro_1.jpg', 8, 1, 2000.0000, 0, 100, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:17', '2011-09-15 22:22:01'),
-	(46, 'Product 19', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/sony_vaio_1.jpg', 10, 1, 1000.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:29', '2011-09-30 01:06:39'),
-	(47, 'Product 21', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/hp_1.jpg', 7, 1, 100.0000, 400, 9, '2009-02-03', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 0, 1, 0, 1, 0, '2009-02-03 21:08:40', '2011-09-30 01:05:28'),
-	(48, 'product 20', 'test 1', '', '', '', '', '', 'test 2', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-08', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-08 17:21:51', '2011-09-30 01:07:06'),
-	(49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'catalog/demo/samsung_tab_1.jpg', 0, 1, 199.9900, 0, 9, '2011-04-25', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2011-04-26 08:57:34', '2011-09-30 01:06:23');
+	(28, 'Product 1', '', '', '', '', '', '', '', 939, 7, 'catalog/demo/htc_touch_hd_1.jpg', 5, 1, 100.0000, 200, 0, '2009-02-03', 146.40000000, 2, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 16:06:50', '2011-09-30 01:05:39'),
+	(29, 'Product 2', '', '', '', '', '', '', '', 999, 6, 'catalog/demo/palm_treo_pro_1.jpg', 6, 1, 279.9900, 0, 0, '2009-02-03', 133.00000000, 2, 0.00000000, 0.00000000, 0.00000000, 3, 1, 1, 0, 1, 0, '2009-02-03 16:42:17', '2011-09-30 01:06:08'),
+	(30, 'Product 3', '', '', '', '', '', '', '', 7, 6, 'catalog/demo/canon_eos_5d_1.jpg', 9, 1, 100.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 16:59:00', '2011-09-30 01:05:23'),
+	(31, 'Product 4', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/nikon_d300_1.jpg', 0, 1, 80.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 3, 1, 1, 0, 1, 0, '2009-02-03 17:00:10', '2011-09-30 01:06:00'),
+	(32, 'Product 5', '', '', '', '', '', '', '', 999, 6, 'catalog/demo/ipod_touch_1.jpg', 8, 1, 100.0000, 0, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 17:07:26', '2011-09-30 01:07:22'),
+	(33, 'Product 6', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/samsung_syncmaster_941bw.jpg', 0, 1, 200.0000, 0, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 17:08:31', '2011-09-30 01:06:29'),
+	(34, 'Product 7', '', '', '', '', '', '', '', 1000, 6, 'catalog/demo/ipod_shuffle_1.jpg', 8, 1, 100.0000, 0, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 18:07:54', '2011-09-30 01:07:17'),
+	(35, 'Product 8', '', '', '', '', '', '', '', 1000, 5, '', 0, 0, 100.0000, 0, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 18:08:31', '2011-09-30 01:06:17'),
+	(36, 'Product 9', '', '', '', '', '', '', '', 994, 6, 'catalog/demo/ipod_nano_1.jpg', 8, 0, 100.0000, 100, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 18:09:19', '2011-09-30 01:07:12'),
+	(40, 'product 11', '', '', '', '', '', '', '', 970, 5, 'catalog/demo/iphone_1.jpg', 8, 1, 101.0000, 0, 0, '2009-02-03', 10.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 21:07:12', '2011-09-30 01:06:53'),
+	(41, 'Product 14', '', '', '', '', '', '', '', 977, 5, 'catalog/demo/imac_1.jpg', 8, 1, 100.0000, 0, 0, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, 0, '2009-02-03 21:07:26', '2011-09-30 01:06:44'),
+	(42, 'Product 15', '', '', '', '', '', '', '', 990, 5, 'catalog/demo/apple_cinema_30.jpg', 8, 1, 100.0000, 400, 0, '2009-02-04', 12.50000000, 1, 1.00000000, 2.00000000, 3.00000000, 1, 1, 2, 0, 1, 0, '2009-02-03 21:07:37', '2011-09-30 00:46:19'),
+	(43, 'Product 16', '', '', '', '', '', '', '', 929, 5, 'catalog/demo/macbook_1.jpg', 8, 0, 500.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:07:49', '2011-09-30 01:05:46'),
+	(44, 'Product 17', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/macbook_air_1.jpg', 8, 1, 1000.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:00', '2011-09-30 01:05:53'),
+	(45, 'Product 18', '', '', '', '', '', '', '', 998, 5, 'catalog/demo/macbook_pro_1.jpg', 8, 1, 2000.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:17', '2011-09-15 22:22:01'),
+	(46, 'Product 19', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/sony_vaio_1.jpg', 10, 1, 1000.0000, 0, 0, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-03 21:08:29', '2011-09-30 01:06:39'),
+	(47, 'Product 21', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/hp_1.jpg', 7, 1, 100.0000, 400, 0, '2009-02-03', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 0, 1, 0, 1, 0, '2009-02-03 21:08:40', '2011-09-30 01:05:28'),
+	(48, 'product 20', 'test 1', '', '', '', '', '', 'test 2', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, 100.0000, 0, 0, '2009-02-08', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, 0, '2009-02-08 17:21:51', '2011-09-30 01:07:06'),
+	(49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'catalog/demo/samsung_tab_1.jpg', 0, 1, 199.9900, 0, 0, '2011-04-25', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2011-04-26 08:57:34', '2011-09-30 01:06:23');
 /*!40000 ALTER TABLE `bf2_product` ENABLE KEYS */;
 
 
@@ -2295,14 +2437,19 @@ CREATE TABLE IF NOT EXISTS `bf2_product_attribute` (
   PRIMARY KEY (`product_id`,`attribute_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_product_attribute: 5 rows
+-- Copiando dados para a tabela bf2commerce.bf2_product_attribute: 10 rows
 /*!40000 ALTER TABLE `bf2_product_attribute` DISABLE KEYS */;
 INSERT INTO `bf2_product_attribute` (`product_id`, `attribute_id`, `language_id`, `text`) VALUES
 	(43, 2, 1, '1'),
 	(47, 4, 1, '16GB'),
 	(43, 4, 1, '8gb'),
 	(42, 3, 1, '100mhz'),
-	(47, 2, 1, '4');
+	(47, 2, 1, '4'),
+	(43, 2, 2, '1'),
+	(47, 4, 2, '16GB'),
+	(43, 4, 2, '8gb'),
+	(42, 3, 2, '100mhz'),
+	(47, 2, 2, '4');
 /*!40000 ALTER TABLE `bf2_product_attribute` ENABLE KEYS */;
 
 
@@ -2321,7 +2468,7 @@ CREATE TABLE IF NOT EXISTS `bf2_product_description` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_product_description: 19 rows
+-- Copiando dados para a tabela bf2commerce.bf2_product_description: 38 rows
 /*!40000 ALTER TABLE `bf2_product_description` DISABLE KEYS */;
 INSERT INTO `bf2_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 	(35, 1, 'Product 8', '&lt;p&gt;\r\n	Product 8&lt;/p&gt;\r\n', '', 'Product 8', '', ''),
@@ -2342,7 +2489,26 @@ INSERT INTO `bf2_product_description` (`product_id`, `language_id`, `name`, `des
 	(31, 1, 'Nikon D300', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&amp;#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		Similar to the D3, the D300 features Nikon&amp;#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&amp;#39;s new features. The D300 features a new 51-point autofocus system with Nikon&amp;#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&amp;#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&amp;#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'Nikon D300', '', ''),
 	(49, 1, 'Samsung Galaxy Tab 10.1', '&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1, is the world&amp;rsquo;s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 &amp;ndash; includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick &amp;ndash; a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader&amp;rsquo;s Hub, Music Hub and Samsung Mini Apps Tray &amp;ndash; which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time.&amp;nbsp;&amp;auml;&amp;ouml;&lt;/p&gt;\r\n', '', 'Samsung Galaxy Tab 10.1', '', ''),
 	(42, 1, 'Apple Cinema 30&quot;', '&lt;p&gt;\r\n	&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there\'s no limit to what you can achieve. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it\'s designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple\'s ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n	&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n	Features:&lt;/h3&gt;\r\n&lt;p&gt;\r\n	Unrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Lightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Simple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Single cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Sleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Huge virtual workspace, very small footprint.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Narrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Unique hinge design for effortless adjustment&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n	Technical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Apple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Thin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2048 x 1280&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1920 x 1200&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1280 x 800&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Antiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Display Power,&lt;/li&gt;\r\n	&lt;li&gt;\r\n		System sleep, wake&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Brightness&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Monitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n	Cable&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		DVI (Digital Visual Interface)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		FireWire 400&lt;/li&gt;\r\n	&lt;li&gt;\r\n		USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;\r\n		DC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Connectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Two-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Kensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n	Requires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Compatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Input voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum power when operating: 150W&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Energy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Operating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Storage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Operating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		FCC Part 15 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55022 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55024&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VCCI Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AS/NZS 3548 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CNS 13438 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ICES-003 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ISO 13406 part 2&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MPR II&lt;/li&gt;\r\n	&lt;li&gt;\r\n		IEC 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		UL 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CSA 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ENERGY STAR&lt;/li&gt;\r\n	&lt;li&gt;\r\n		TCO \'03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n	30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Height: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Width: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Depth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Weight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Mac Pro, all graphic options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MacBook Pro&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		PowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Apple Cinema 30', '', ''),
-	(30, 1, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon\'s press material for the EOS 5D states that it \'defines (a) new D-SLR category\', while we\'re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably \'chunkier\'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR\'s, an important difference when compared to the latter is that the EOS 5D doesn\'t have any environmental seals. While Canon don\'t specifically refer to the EOS 5D as a \'professional\' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they\'ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', 'sdf', '', '');
+	(30, 1, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon\'s press material for the EOS 5D states that it \'defines (a) new D-SLR category\', while we\'re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably \'chunkier\'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR\'s, an important difference when compared to the latter is that the EOS 5D doesn\'t have any environmental seals. While Canon don\'t specifically refer to the EOS 5D as a \'professional\' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they\'ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', 'sdf', '', ''),
+	(35, 2, 'Product 8', '&lt;p&gt;\r\n	Product 8&lt;/p&gt;\r\n', '', 'Product 8', '', ''),
+	(48, 2, 'iPod Classic', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;More room to move.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Sleeker design.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Beautiful, durable, and sleeker than ever, iPod classic now features an anodized aluminum and polished stainless steel enclosure with rounded edges.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'iPod Classic', '', ''),
+	(40, 2, 'iPhone', '&lt;p class=&quot;intro&quot;&gt;\r\n	iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.&lt;/p&gt;\r\n', '', 'iPhone', '', ''),
+	(28, 2, 'HTC Touch HD', '&lt;p&gt;\r\n	HTC Touch - in High Definition. Watch music videos and streaming content in awe-inspiring high definition clarity for a mobile experience you never thought possible. Seductively sleek, the HTC Touch HD provides the next generation of mobile functionality, all at a simple touch. Fully integrated with Windows Mobile Professional 6.1, ultrafast 3.5G, GPS, 5MP camera, plus lots more - all delivered on a breathtakingly crisp 3.8&amp;quot; WVGA touchscreen - you can take control of your mobile world with the HTC Touch HD.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Processor Qualcomm&amp;reg; MSM 7201A&amp;trade; 528 MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Operating System&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Memory: 512 MB ROM, 288 MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Dimensions: 115 mm x 62.8 mm x 12 mm / 146.4 grams&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.8-inch TFT-LCD flat touch-sensitive screen with 480 x 800 WVGA resolution&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/WCDMA: Europe/Asia: 900/2100 MHz; Up to 2 Mbps up-link and 7.2 Mbps down-link speeds&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM/GPRS/EDGE: Europe/Asia: 850/900/1800/1900 MHz (Band frequency, HSUPA availability, and data speed are operator dependent.)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Device Control via HTC TouchFLO&amp;trade; 3D &amp;amp; Touch-sensitive front panel buttons&lt;/li&gt;\r\n	&lt;li&gt;\r\n		GPS and A-GPS ready&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth&amp;reg; 2.0 with Enhanced Data Rate and A2DP for wireless stereo headsets&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wi-Fi&amp;reg;: IEEE 802.11 b/g&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HTC ExtUSB&amp;trade; (11-pin mini-USB 2.0)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		5 megapixel color camera with auto focus&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VGA CMOS color camera&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in 3.5 mm audio jack, microphone, speaker, and FM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Ring tone formats: AAC, AAC+, eAAC+, AMR-NB, AMR-WB, QCP, MP3, WMA, WAV&lt;/li&gt;\r\n	&lt;li&gt;\r\n		40 polyphonic and standard MIDI format 0 and 1 (SMF)/SP MIDI&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Rechargeable Lithium-ion or Lithium-ion polymer 1350 mAh battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Expansion Slot: microSD&amp;trade; memory card (SD 2.0 compatible)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AC Adapter Voltage range/frequency: 100 ~ 240V AC, 50/60 Hz DC output: 5V and 1A&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Special Features: FM Radio, G-Sensor&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', '	 HTC Touch HD', '', ''),
+	(44, 2, 'MacBook Air', '&lt;div&gt;\r\n	MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don&amp;rsquo;t lose inches and pounds overnight. It&amp;rsquo;s the result of rethinking conventions. Of multiple wireless innovations. And of breakthrough design. With MacBook Air, mobile computing suddenly has a new standard.&lt;/div&gt;\r\n', '', 'MacBook Air', '', ''),
+	(45, 2, 'MacBook Pro', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Latest Intel mobile architecture&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Powered by the most advanced mobile processors from Intel, the new Core 2 Duo MacBook Pro is over 50% faster than the original Core Duo MacBook Pro and now supports up to 4GB of RAM.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Leading-edge graphics&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			The NVIDIA GeForce 8600M GT delivers exceptional graphics processing power. For the ultimate creative canvas, you can even configure the 17-inch model with a 1920-by-1200 resolution display.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Designed for life on the road&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Innovations such as a magnetic power connection and an illuminated keyboard with ambient light sensor put the MacBook Pro in a class by itself.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Connect. Create. Communicate.&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Quickly set up a video conference with the built-in iSight camera. Control presentations and media from up to 30 feet away with the included Apple Remote. Connect to high-bandwidth peripherals with FireWire 800 and DVI.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Next-generation wireless&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Featuring 802.11n wireless technology, the MacBook Pro delivers up to five times the performance and up to twice the range of previous-generation technologies.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'MacBook Pro', '', ''),
+	(29, 2, 'Palm Treo Pro', '&lt;p&gt;\r\n	Redefine your workday with the Palm Treo Pro smartphone. Perfectly balanced, you can respond to business and personal email, stay on top of appointments and contacts, and use Wi-Fi or GPS when you&amp;rsquo;re out and about. Then watch a video on YouTube, catch up with news and sports on the web, or listen to a few songs. Balance your work and play the way you like it, with the Palm Treo Pro.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Edition&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Qualcomm&amp;reg; MSM7201 400MHz Processor&lt;/li&gt;\r\n	&lt;li&gt;\r\n		320x320 transflective colour TFT touchscreen&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/UMTS/EDGE/GPRS/GSM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Tri-band UMTS &amp;mdash; 850MHz, 1900MHz, 2100MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM &amp;mdash; 850/900/1800/1900&lt;/li&gt;\r\n	&lt;li&gt;\r\n		802.11b/g with WPA, WPA2, and 801.1x authentication&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in GPS&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth Version: 2.0 + Enhanced Data Rate&lt;/li&gt;\r\n	&lt;li&gt;\r\n		256MB storage (100MB user available), 128MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2.0 megapixel camera, up to 8x digital zoom and video capture&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Removable, rechargeable 1500mAh lithium-ion battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Up to 5.0 hours talk time and up to 250 hours standby&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroSDHC card expansion (up to 32GB supported)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroUSB 2.0 for synchronization and charging&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.5mm stereo headset jack&lt;/li&gt;\r\n	&lt;li&gt;\r\n		60mm (W) x 114mm (L) x 13.5mm (D) / 133g&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Palm Treo Pro', '', ''),
+	(36, 2, 'iPod Nano', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Video in your pocket.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Its the small iPod with one very big idea: video. The worlds most popular music player now lets you enjoy movies, TV shows, and more on a two-inch display thats 65% brighter than before.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Sleek and colorful.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With an anodized aluminum and polished stainless steel enclosure and a choice of five colors, iPod nano is dressed to impress.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;iTunes.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Available as a free download, iTunes makes it easy to browse and buy millions of songs, movies, TV shows, audiobooks, and games and download free podcasts all at the iTunes Store. And you can import your own music, manage your whole media library, and sync your iPod or iPhone with ease.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Nano', '', ''),
+	(46, 2, 'Sony VAIO', '&lt;div&gt;\r\n	Unprecedented power. The next generation of processing technology has arrived. Built into the newest VAIO notebooks lies Intel&amp;#39;s latest, most powerful innovation yet: Intel&amp;reg; Centrino&amp;reg; 2 processor technology. Boasting incredible speed, expanded wireless connectivity, enhanced multimedia support and greater energy efficiency, all the high-performance essentials are seamlessly combined into a single chip.&lt;/div&gt;\r\n', '', 'Sony VAIO', '', ''),
+	(47, 2, 'HP LP3065', '&lt;p&gt;\r\n	Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you&amp;#39;re at the office&lt;/p&gt;\r\n', '', 'HP LP3065', '', ''),
+	(32, 2, 'iPod Touch', '&lt;p&gt;\r\n	&lt;strong&gt;Revolutionary multi-touch interface.&lt;/strong&gt;&lt;br /&gt;\r\n	iPod touch features the same multi-touch screen technology as iPhone. Pinch to zoom in on a photo. Scroll through your songs and videos with a flick. Flip through your library by album artwork with Cover Flow.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Gorgeous 3.5-inch widescreen display.&lt;/strong&gt;&lt;br /&gt;\r\n	Watch your movies, TV shows, and photos come alive with bright, vivid color on the 320-by-480-pixel display.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Music downloads straight from iTunes.&lt;/strong&gt;&lt;br /&gt;\r\n	Shop the iTunes Wi-Fi Music Store from anywhere with Wi-Fi.1 Browse or search to find the music youre looking for, preview it, and buy it with just a tap.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Surf the web with Wi-Fi.&lt;/strong&gt;&lt;br /&gt;\r\n	Browse the web using Safari and watch YouTube videos on the first iPod with Wi-Fi built in&lt;br /&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n', '', '	 iPod Touch', '', ''),
+	(41, 2, 'iMac', '&lt;div&gt;\r\n	Just when you thought iMac had everything, now there&acute;s even more. More powerful Intel Core 2 Duo processors. And more memory standard. Combine this with Mac OS X Leopard and iLife &acute;08, and it&acute;s more all-in-one than ever. iMac packs amazing performance into a stunningly slim space.&lt;/div&gt;\r\n', '', 'iMac', '', ''),
+	(33, 2, 'Samsung SyncMaster 941BW', '&lt;div&gt;\r\n	Imagine the advantages of going big without slowing down. The big 19&amp;quot; 941BW monitor combines wide aspect ratio with fast pixel response time, for bigger images, more room to work and crisp motion. In addition, the exclusive MagicBright 2, MagicColor and MagicTune technologies help deliver the ideal image in every situation, while sleek, narrow bezels and adjustable stands deliver style just the way you want it. With the Samsung 941BW widescreen analog/digital LCD monitor, it&amp;#39;s not hard to imagine.&lt;/div&gt;\r\n', '', 'Samsung SyncMaster 941BW', '', ''),
+	(34, 2, 'iPod Shuffle', '&lt;div&gt;\r\n	&lt;strong&gt;Born to be worn.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Clip on the worlds most wearable music player and take up to 240 songs with you anywhere. Choose from five colors including four new hues to make your musical fashion statement.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Random meets rhythm.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With iTunes autofill, iPod shuffle can deliver a new musical experience every time you sync. For more randomness, you can shuffle songs during playback with the slide of a switch.&lt;/p&gt;\r\n	&lt;strong&gt;Everything is easy.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Charge and sync with the included USB dock. Operate the iPod shuffle controls with one hand. Enjoy up to 12 hours straight of skip-free music playback.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Shuffle', '', ''),
+	(43, 2, 'MacBook', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Intel Core 2 Duo processor&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Powered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;1GB memory, larger hard drives&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		The new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Sleek, 1.08-inch-thin design&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		MacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Built-in iSight camera&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Right out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'MacBook', '', ''),
+	(31, 2, 'Nikon D300', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&amp;#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		Similar to the D3, the D300 features Nikon&amp;#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&amp;#39;s new features. The D300 features a new 51-point autofocus system with Nikon&amp;#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&amp;#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&amp;#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'Nikon D300', '', ''),
+	(49, 2, 'Samsung Galaxy Tab 10.1', '&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1, is the world&amp;rsquo;s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 &amp;ndash; includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick &amp;ndash; a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader&amp;rsquo;s Hub, Music Hub and Samsung Mini Apps Tray &amp;ndash; which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time.&amp;nbsp;&amp;auml;&amp;ouml;&lt;/p&gt;\r\n', '', 'Samsung Galaxy Tab 10.1', '', ''),
+	(42, 2, 'Apple Cinema 30&quot;', '&lt;p&gt;\r\n	&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there\'s no limit to what you can achieve. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it\'s designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple\'s ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n	&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n	Features:&lt;/h3&gt;\r\n&lt;p&gt;\r\n	Unrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Lightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Simple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Single cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Sleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Huge virtual workspace, very small footprint.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Narrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Unique hinge design for effortless adjustment&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n	Technical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Apple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Thin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2048 x 1280&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1920 x 1200&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1280 x 800&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Antiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Display Power,&lt;/li&gt;\r\n	&lt;li&gt;\r\n		System sleep, wake&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Brightness&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Monitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n	Cable&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		DVI (Digital Visual Interface)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		FireWire 400&lt;/li&gt;\r\n	&lt;li&gt;\r\n		USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;\r\n		DC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Connectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Two-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Kensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n	Requires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Compatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Input voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum power when operating: 150W&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Energy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Operating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Storage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Operating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		FCC Part 15 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55022 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55024&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VCCI Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AS/NZS 3548 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CNS 13438 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ICES-003 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ISO 13406 part 2&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MPR II&lt;/li&gt;\r\n	&lt;li&gt;\r\n		IEC 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		UL 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CSA 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ENERGY STAR&lt;/li&gt;\r\n	&lt;li&gt;\r\n		TCO \'03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n	30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Height: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Width: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Depth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Weight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Mac Pro, all graphic options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MacBook Pro&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		PowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Apple Cinema 30', '', ''),
+	(30, 2, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon\'s press material for the EOS 5D states that it \'defines (a) new D-SLR category\', while we\'re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably \'chunkier\'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR\'s, an important difference when compared to the latter is that the EOS 5D doesn\'t have any environmental seals. While Canon don\'t specifically refer to the EOS 5D as a \'professional\' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they\'ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', 'sdf', '', '');
 /*!40000 ALTER TABLE `bf2_product_description` ENABLE KEYS */;
 
 
@@ -2802,9 +2968,12 @@ CREATE TABLE IF NOT EXISTS `bf2_return_action` (
   PRIMARY KEY (`return_action_id`,`language_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_return_action: 3 rows
+-- Copiando dados para a tabela bf2commerce.bf2_return_action: 6 rows
 /*!40000 ALTER TABLE `bf2_return_action` DISABLE KEYS */;
 INSERT INTO `bf2_return_action` (`return_action_id`, `language_id`, `name`) VALUES
+	(1, 2, 'Reembolsado'),
+	(2, 2, 'Crédito Emitido'),
+	(3, 2, 'Envio de Substituição'),
 	(1, 1, 'Refunded'),
 	(2, 1, 'Credit Issued'),
 	(3, 1, 'Replacement Sent');
@@ -2837,9 +3006,14 @@ CREATE TABLE IF NOT EXISTS `bf2_return_reason` (
   PRIMARY KEY (`return_reason_id`,`language_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_return_reason: 5 rows
+-- Copiando dados para a tabela bf2commerce.bf2_return_reason: 10 rows
 /*!40000 ALTER TABLE `bf2_return_reason` DISABLE KEYS */;
 INSERT INTO `bf2_return_reason` (`return_reason_id`, `language_id`, `name`) VALUES
+	(1, 2, 'Chegou quebrado'),
+	(2, 2, 'Produto trocado'),
+	(3, 2, 'Erro no pedido'),
+	(4, 2, 'Defeito, forneça detalhes'),
+	(5, 2, 'Outros, forneça detalhes'),
 	(1, 1, 'Dead On Arrival'),
 	(2, 1, 'Received Wrong Item'),
 	(3, 1, 'Order Error'),
@@ -2857,9 +3031,12 @@ CREATE TABLE IF NOT EXISTS `bf2_return_status` (
   PRIMARY KEY (`return_status_id`,`language_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_return_status: 3 rows
+-- Copiando dados para a tabela bf2commerce.bf2_return_status: 6 rows
 /*!40000 ALTER TABLE `bf2_return_status` DISABLE KEYS */;
 INSERT INTO `bf2_return_status` (`return_status_id`, `language_id`, `name`) VALUES
+	(1, 2, 'Pendente'),
+	(3, 2, 'Completa'),
+	(2, 2, 'Aguardando Produtos'),
 	(1, 1, 'Pending'),
 	(3, 1, 'Complete'),
 	(2, 1, 'Awaiting Products');
@@ -2897,105 +3074,98 @@ CREATE TABLE IF NOT EXISTS `bf2_setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=177 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=268 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_setting: 173 rows
 /*!40000 ALTER TABLE `bf2_setting` DISABLE KEYS */;
 INSERT INTO `bf2_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `serialized`) VALUES
-	(1, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai\'hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
-	(2, 0, 'config', 'config_shared', '0', 0),
-	(3, 0, 'config', 'config_secure', '0', 0),
+	(257, 0, 'config', 'config_compression', '0', 0),
+	(258, 0, 'config', 'config_secure', '0', 0),
+	(259, 0, 'config', 'config_password', '1', 0),
+	(260, 0, 'config', 'config_shared', '0', 0),
+	(261, 0, 'config', 'config_encryption', 'z7Zfm4IlihYXklJzPtLlBeW7WsjukvBCp3R1jMCJcLUyRAImy1ecgzl0SZvvXUZXTbE5QOg4UFSXEr4ngOBvCMJbpwjuaG9Y0yBHhudspd1YCSJt4H1vy6CpRS9rOUOuguXMxIYY8Snat9aNKT62orq2sIMuAm3oz0ah9f1Z6fKZbF2u6FskQQ6i1HRBwrdnYiIjb0rvJewlbXLKasPvoa914xWfxXfnSKzaMvubl8LnE4EDHXzoWEx8Tnf6Dcq6q3yyGJigqCq9aORz6W55reeIy3f1Ro7RPG3fYtVcinnnrOz3eKkeN8LNAGtKIdxFTgCruQQvgK3wwMfWnQ2GcSgOylHsr4uIuA45rbQWPnC8EwEpx5uMyLA2gsRoTTD4KPAYOe1kINjdDTcJdHSNsLsX7jZKio4bsCImTqnaX7QZ6j14IldOazDz0wbVym9FxNZ5agdKg4UlP4Fw9vYWB7a10EwyTzSmYA8Hlxc7DyhDqDwtztvZc0Vk4JKdiQ5V4ub1LKlSekCYMYvaQOQSuCPFkA6P6Mys0uT5b8IOax9YwFq7T7RxJ99RHCfbcb3LJpcRUNiJMhDMdb0Xt4sEIWUmuhpRLSImSdRfY5TPAueAtCPlUFjqQ0xwGutv5kVzNsrCu8TUqvDehpsTrktzM3jqsvUFDfSz5HYZVg8dPES1KBYiWEi5JMGjGai4Qk8IG5yH5KSogGnWpzgi3XPfi8SsmSSZyo0AoC0cyJl1AR6L4GiH7UiL40m2XOb545RwHB8IGoBH3Cid6IA32OxMbR8jn4aJdROAS7YV9m3takLEXKi2UqxLlLbQrIf0Ds1sSAl1w1XVDlEtH7QdaLtq7PlHgRf0nXA1hGBgigFNmZIJaYEQzjFFWf5tlQUWVnzxGJZLaYllulydbzWaabO5yP0ZM3jOibDj9XMASSPDWRm5LLQ5DJtVVcX1E9Y5B64grcHmDEcxKsVh7tZ9YyHta8TyH2RNQ6FmUtxMrcZWI3eICePLRXqeZd0pzirVkDBm', 0),
 	(4, 0, 'voucher', 'voucher_sort_order', '8', 0),
 	(5, 0, 'voucher', 'voucher_status', '1', 0),
-	(6, 0, 'config', 'config_fraud_detection', '0', 0),
-	(7, 0, 'config', 'config_alert_email', '', 0),
-	(8, 0, 'config', 'config_ftp_status', '0', 0),
-	(9, 0, 'config', 'config_ftp_root', '', 0),
-	(10, 0, 'config', 'config_ftp_password', '', 0),
-	(11, 0, 'config', 'config_ftp_username', '', 0),
-	(12, 0, 'config', 'config_ftp_port', '21', 0),
-	(13, 0, 'config', 'config_ftp_hostname', '', 0),
-	(14, 0, 'config', 'config_meta_title', 'Your Store', 0),
-	(15, 0, 'config', 'config_meta_description', 'My Store', 0),
-	(16, 0, 'config', 'config_meta_keyword', '', 0),
-	(17, 0, 'config', 'config_theme', 'theme_default', 0),
-	(18, 0, 'config', 'config_layout_id', '4', 0),
-	(19, 0, 'config', 'config_country_id', '222', 0),
-	(20, 0, 'config', 'config_zone_id', '3563', 0),
-	(21, 0, 'config', 'config_language', 'en-gb', 0),
-	(22, 0, 'config', 'config_admin_language', 'en-gb', 0),
-	(23, 0, 'config', 'config_currency', 'USD', 0),
-	(24, 0, 'config', 'config_currency_auto', '1', 0),
-	(25, 0, 'config', 'config_length_class_id', '1', 0),
-	(26, 0, 'config', 'config_weight_class_id', '1', 0),
-	(27, 0, 'config', 'config_product_count', '1', 0),
-	(28, 0, 'config', 'config_limit_admin', '20', 0),
-	(29, 0, 'config', 'config_review_status', '1', 0),
-	(30, 0, 'config', 'config_review_guest', '1', 0),
-	(31, 0, 'config', 'config_voucher_min', '1', 0),
-	(32, 0, 'config', 'config_voucher_max', '1000', 0),
-	(33, 0, 'config', 'config_tax', '1', 0),
-	(34, 0, 'config', 'config_tax_default', 'shipping', 0),
-	(35, 0, 'config', 'config_tax_customer', 'shipping', 0),
-	(36, 0, 'config', 'config_customer_online', '0', 0),
-	(37, 0, 'config', 'config_customer_activity', '0', 0),
-	(38, 0, 'config', 'config_customer_search', '0', 0),
-	(39, 0, 'config', 'config_customer_group_id', '1', 0),
-	(40, 0, 'config', 'config_customer_group_display', '["1"]', 1),
-	(41, 0, 'config', 'config_customer_price', '0', 0),
-	(42, 0, 'config', 'config_account_id', '3', 0),
-	(43, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
-	(176, 0, 'config', 'config_api_id', '1', 0),
-	(45, 0, 'config', 'config_cart_weight', '1', 0),
-	(46, 0, 'config', 'config_checkout_guest', '1', 0),
-	(47, 0, 'config', 'config_checkout_id', '5', 0),
-	(48, 0, 'config', 'config_order_status_id', '1', 0),
-	(49, 0, 'config', 'config_processing_status', '["5","1","2","12","3"]', 1),
-	(50, 0, 'config', 'config_complete_status', '["5","3"]', 1),
-	(51, 0, 'config', 'config_stock_display', '0', 0),
-	(52, 0, 'config', 'config_stock_warning', '0', 0),
-	(53, 0, 'config', 'config_stock_checkout', '0', 0),
-	(54, 0, 'config', 'config_affiliate_approval', '0', 0),
-	(55, 0, 'config', 'config_affiliate_auto', '0', 0),
-	(56, 0, 'config', 'config_affiliate_commission', '5', 0),
-	(57, 0, 'config', 'config_affiliate_id', '4', 0),
-	(58, 0, 'config', 'config_return_id', '0', 0),
-	(59, 0, 'config', 'config_return_status_id', '2', 0),
-	(60, 0, 'config', 'config_logo', 'catalog/logo.png', 0),
-	(61, 0, 'config', 'config_icon', 'catalog/cart.png', 0),
-	(62, 0, 'config', 'config_comment', '', 0),
-	(63, 0, 'config', 'config_open', '', 0),
-	(64, 0, 'config', 'config_image', '', 0),
-	(65, 0, 'config', 'config_fax', '', 0),
-	(66, 0, 'config', 'config_telephone', '123456789', 0),
-	(174, 0, 'config', 'config_email', 'jardel@bf2tecnologia.com.br', 0),
-	(68, 0, 'config', 'config_geocode', '', 0),
-	(69, 0, 'config', 'config_owner', 'Your Name', 0),
-	(70, 0, 'config', 'config_address', 'Address 1', 0),
-	(71, 0, 'config', 'config_name', 'Your Store', 0),
-	(72, 0, 'config', 'config_seo_url', '0', 0),
-	(73, 0, 'config', 'config_file_max_size', '300000', 0),
-	(74, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
-	(75, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
-	(76, 0, 'config', 'config_maintenance', '0', 0),
-	(77, 0, 'config', 'config_password', '1', 0),
-	(175, 0, 'config', 'config_encryption', 'z7Zfm4IlihYXklJzPtLlBeW7WsjukvBCp3R1jMCJcLUyRAImy1ecgzl0SZvvXUZXTbE5QOg4UFSXEr4ngOBvCMJbpwjuaG9Y0yBHhudspd1YCSJt4H1vy6CpRS9rOUOuguXMxIYY8Snat9aNKT62orq2sIMuAm3oz0ah9f1Z6fKZbF2u6FskQQ6i1HRBwrdnYiIjb0rvJewlbXLKasPvoa914xWfxXfnSKzaMvubl8LnE4EDHXzoWEx8Tnf6Dcq6q3yyGJigqCq9aORz6W55reeIy3f1Ro7RPG3fYtVcinnnrOz3eKkeN8LNAGtKIdxFTgCruQQvgK3wwMfWnQ2GcSgOylHsr4uIuA45rbQWPnC8EwEpx5uMyLA2gsRoTTD4KPAYOe1kINjdDTcJdHSNsLsX7jZKio4bsCImTqnaX7QZ6j14IldOazDz0wbVym9FxNZ5agdKg4UlP4Fw9vYWB7a10EwyTzSmYA8Hlxc7DyhDqDwtztvZc0Vk4JKdiQ5V4ub1LKlSekCYMYvaQOQSuCPFkA6P6Mys0uT5b8IOax9YwFq7T7RxJ99RHCfbcb3LJpcRUNiJMhDMdb0Xt4sEIWUmuhpRLSImSdRfY5TPAueAtCPlUFjqQ0xwGutv5kVzNsrCu8TUqvDehpsTrktzM3jqsvUFDfSz5HYZVg8dPES1KBYiWEi5JMGjGai4Qk8IG5yH5KSogGnWpzgi3XPfi8SsmSSZyo0AoC0cyJl1AR6L4GiH7UiL40m2XOb545RwHB8IGoBH3Cid6IA32OxMbR8jn4aJdROAS7YV9m3takLEXKi2UqxLlLbQrIf0Ds1sSAl1w1XVDlEtH7QdaLtq7PlHgRf0nXA1hGBgigFNmZIJaYEQzjFFWf5tlQUWVnzxGJZLaYllulydbzWaabO5yP0ZM3jOibDj9XMASSPDWRm5LLQ5DJtVVcX1E9Y5B64grcHmDEcxKsVh7tZ9YyHta8TyH2RNQ6FmUtxMrcZWI3eICePLRXqeZd0pzirVkDBm', 0),
-	(79, 0, 'config', 'config_compression', '0', 0),
-	(80, 0, 'config', 'config_error_display', '1', 0),
-	(81, 0, 'config', 'config_error_log', '1', 0),
-	(82, 0, 'config', 'config_error_filename', 'error.log', 0),
-	(83, 0, 'config', 'config_google_analytics', '', 0),
-	(84, 0, 'config', 'config_mail_protocol', 'mail', 0),
-	(85, 0, 'config', 'config_mail_parameter', '', 0),
-	(86, 0, 'config', 'config_mail_smtp_hostname', '', 0),
-	(87, 0, 'config', 'config_mail_smtp_username', '', 0),
-	(88, 0, 'config', 'config_mail_smtp_password', '', 0),
-	(89, 0, 'config', 'config_mail_smtp_port', '25', 0),
-	(90, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
-	(91, 0, 'config', 'config_mail_alert', '["order"]', 1),
-	(92, 0, 'config', 'config_captcha', 'basic_captcha', 0),
-	(93, 0, 'config', 'config_captcha_page', '["review","return","contact"]', 1),
-	(94, 0, 'config', 'config_login_attempts', '5', 0),
+	(256, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai\'hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
+	(255, 0, 'config', 'config_seo_url', '0', 0),
+	(254, 0, 'config', 'config_maintenance', '0', 0),
+	(253, 0, 'config', 'config_alert_email', 'pietro@bf2tecnologia.com.br', 0),
+	(252, 0, 'config', 'config_mail_alert', '["account","affiliate","order","review"]', 1),
+	(251, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
+	(250, 0, 'config', 'config_mail_smtp_port', '25', 0),
+	(249, 0, 'config', 'config_mail_smtp_password', '', 0),
+	(248, 0, 'config', 'config_mail_smtp_username', '', 0),
+	(247, 0, 'config', 'config_mail_smtp_hostname', '', 0),
+	(246, 0, 'config', 'config_mail_parameter', '', 0),
+	(245, 0, 'config', 'config_mail_protocol', 'mail', 0),
+	(244, 0, 'config', 'config_ftp_status', '0', 0),
+	(243, 0, 'config', 'config_ftp_root', '', 0),
+	(242, 0, 'config', 'config_ftp_password', '', 0),
+	(241, 0, 'config', 'config_ftp_username', '', 0),
+	(240, 0, 'config', 'config_ftp_port', '21', 0),
+	(239, 0, 'config', 'config_ftp_hostname', 'bf2commerce.localhost', 0),
+	(238, 0, 'config', 'config_icon', 'catalog/cart.png', 0),
+	(237, 0, 'config', 'config_logo', 'catalog/logo.png', 0),
+	(236, 0, 'config', 'config_captcha_page', '["review","return","contact"]', 1),
+	(235, 0, 'config', 'config_captcha', '', 0),
+	(234, 0, 'config', 'config_return_status_id', '2', 0),
+	(233, 0, 'config', 'config_return_id', '0', 0),
+	(232, 0, 'config', 'config_affiliate_id', '4', 0),
+	(231, 0, 'config', 'config_affiliate_commission', '5', 0),
+	(230, 0, 'config', 'config_affiliate_auto', '0', 0),
+	(229, 0, 'config', 'config_affiliate_approval', '0', 0),
+	(228, 0, 'config', 'config_stock_checkout', '0', 0),
+	(227, 0, 'config', 'config_stock_warning', '0', 0),
+	(226, 0, 'config', 'config_stock_display', '0', 0),
+	(225, 0, 'config', 'config_api_id', '1', 0),
+	(224, 0, 'config', 'config_fraud_status_id', '1', 0),
+	(222, 0, 'config', 'config_processing_status', '["1","5","3","12","2"]', 1),
+	(223, 0, 'config', 'config_complete_status', '["5","3"]', 1),
+	(212, 0, 'config', 'config_customer_group_id', '1', 0),
+	(213, 0, 'config', 'config_customer_group_display', '["1"]', 1),
+	(214, 0, 'config', 'config_customer_price', '0', 0),
+	(215, 0, 'config', 'config_login_attempts', '5', 0),
+	(216, 0, 'config', 'config_account_id', '3', 0),
+	(217, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
+	(218, 0, 'config', 'config_cart_weight', '1', 0),
+	(219, 0, 'config', 'config_checkout_guest', '1', 0),
+	(220, 0, 'config', 'config_checkout_id', '5', 0),
+	(221, 0, 'config', 'config_order_status_id', '1', 0),
+	(211, 0, 'config', 'config_customer_search', '0', 0),
+	(191, 0, 'config', 'config_comment', '', 0),
+	(192, 0, 'config', 'config_country_id', '30', 0),
+	(193, 0, 'config', 'config_zone_id', '', 0),
+	(194, 0, 'config', 'config_language', 'pt-br', 0),
+	(195, 0, 'config', 'config_admin_language', 'pt-br', 0),
+	(196, 0, 'config', 'config_currency', 'BRL', 0),
+	(197, 0, 'config', 'config_currency_auto', '1', 0),
+	(198, 0, 'config', 'config_length_class_id', '1', 0),
+	(199, 0, 'config', 'config_weight_class_id', '1', 0),
+	(200, 0, 'config', 'config_product_count', '1', 0),
+	(201, 0, 'config', 'config_limit_admin', '20', 0),
+	(202, 0, 'config', 'config_review_status', '1', 0),
+	(203, 0, 'config', 'config_review_guest', '1', 0),
+	(204, 0, 'config', 'config_voucher_min', '1', 0),
+	(205, 0, 'config', 'config_voucher_max', '1000', 0),
+	(206, 0, 'config', 'config_tax', '1', 0),
+	(207, 0, 'config', 'config_tax_default', 'shipping', 0),
+	(208, 0, 'config', 'config_tax_customer', 'shipping', 0),
+	(209, 0, 'config', 'config_customer_online', '0', 0),
+	(210, 0, 'config', 'config_customer_activity', '0', 0),
+	(190, 0, 'config', 'config_open', '', 0),
+	(189, 0, 'config', 'config_image', '', 0),
+	(188, 0, 'config', 'config_fax', '', 0),
+	(187, 0, 'config', 'config_telephone', '123456789', 0),
+	(186, 0, 'config', 'config_email', 'jardel@bf2tecnologia.com.br', 0),
+	(185, 0, 'config', 'config_geocode', '', 0),
+	(184, 0, 'config', 'config_address', 'Address 1', 0),
+	(183, 0, 'config', 'config_owner', 'Your Name', 0),
+	(182, 0, 'config', 'config_name', 'Your Store', 0),
+	(181, 0, 'config', 'config_layout_id', '4', 0),
+	(180, 0, 'config', 'config_theme', 'theme_default', 0),
+	(179, 0, 'config', 'config_meta_keyword', '', 0),
+	(178, 0, 'config', 'config_meta_description', 'My Store', 0),
+	(177, 0, 'config', 'config_meta_title', 'Your Store', 0),
 	(95, 0, 'free_checkout', 'free_checkout_status', '1', 0),
 	(96, 0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
 	(97, 0, 'shipping', 'shipping_sort_order', '3', 0),
@@ -3074,7 +3244,13 @@ INSERT INTO `bf2_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `se
 	(170, 0, 'dashboard_recent', 'dashboard_recent_status', '1', 0),
 	(171, 0, 'dashboard_recent', 'dashboard_recent_sort_order', '8', 0),
 	(172, 0, 'dashboard_activity', 'dashboard_activity_width', '4', 0),
-	(173, 0, 'dashboard_recent', 'dashboard_recent_width', '8', 0);
+	(173, 0, 'dashboard_recent', 'dashboard_recent_width', '8', 0),
+	(262, 0, 'config', 'config_file_max_size', '300000', 0),
+	(263, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
+	(264, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
+	(265, 0, 'config', 'config_error_display', '1', 0),
+	(266, 0, 'config', 'config_error_log', '1', 0),
+	(267, 0, 'config', 'config_error_filename', 'error.log', 0);
 /*!40000 ALTER TABLE `bf2_setting` ENABLE KEYS */;
 
 
@@ -3087,9 +3263,13 @@ CREATE TABLE IF NOT EXISTS `bf2_stock_status` (
   PRIMARY KEY (`stock_status_id`,`language_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_stock_status: 4 rows
+-- Copiando dados para a tabela bf2commerce.bf2_stock_status: 8 rows
 /*!40000 ALTER TABLE `bf2_stock_status` DISABLE KEYS */;
 INSERT INTO `bf2_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
+	(7, 2, 'Em Estoque'),
+	(8, 2, 'Orçamento'),
+	(5, 2, 'Esgotado'),
+	(6, 2, '2 a 3 Dias'),
 	(7, 1, 'In Stock'),
 	(8, 1, 'Pre-Order'),
 	(5, 1, 'Out Of Stock'),
@@ -3125,9 +3305,6 @@ CREATE TABLE IF NOT EXISTS `bf2_tax_class` (
 
 -- Copiando dados para a tabela bf2commerce.bf2_tax_class: 2 rows
 /*!40000 ALTER TABLE `bf2_tax_class` DISABLE KEYS */;
-INSERT INTO `bf2_tax_class` (`tax_class_id`, `title`, `description`, `date_added`, `date_modified`) VALUES
-	(9, 'Taxable Goods', 'Taxed goods', '2009-01-06 23:21:53', '2011-09-23 14:07:50'),
-	(10, 'Downloadable Products', 'Downloadable', '2011-09-21 22:19:39', '2011-09-22 10:27:36');
 /*!40000 ALTER TABLE `bf2_tax_class` ENABLE KEYS */;
 
 
@@ -3146,9 +3323,6 @@ CREATE TABLE IF NOT EXISTS `bf2_tax_rate` (
 
 -- Copiando dados para a tabela bf2commerce.bf2_tax_rate: 2 rows
 /*!40000 ALTER TABLE `bf2_tax_rate` DISABLE KEYS */;
-INSERT INTO `bf2_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`, `date_added`, `date_modified`) VALUES
-	(86, 3, 'VAT (20%)', 20.0000, 'P', '2011-03-09 21:17:10', '2011-09-22 22:24:29'),
-	(87, 3, 'Eco Tax (-2.00)', 2.0000, 'F', '2011-09-21 21:49:23', '2011-09-23 00:40:19');
 /*!40000 ALTER TABLE `bf2_tax_rate` ENABLE KEYS */;
 
 
@@ -3162,9 +3336,6 @@ CREATE TABLE IF NOT EXISTS `bf2_tax_rate_to_customer_group` (
 
 -- Copiando dados para a tabela bf2commerce.bf2_tax_rate_to_customer_group: 2 rows
 /*!40000 ALTER TABLE `bf2_tax_rate_to_customer_group` DISABLE KEYS */;
-INSERT INTO `bf2_tax_rate_to_customer_group` (`tax_rate_id`, `customer_group_id`) VALUES
-	(86, 1),
-	(87, 1);
 /*!40000 ALTER TABLE `bf2_tax_rate_to_customer_group` ENABLE KEYS */;
 
 
@@ -3181,11 +3352,6 @@ CREATE TABLE IF NOT EXISTS `bf2_tax_rule` (
 
 -- Copiando dados para a tabela bf2commerce.bf2_tax_rule: 4 rows
 /*!40000 ALTER TABLE `bf2_tax_rule` DISABLE KEYS */;
-INSERT INTO `bf2_tax_rule` (`tax_rule_id`, `tax_class_id`, `tax_rate_id`, `based`, `priority`) VALUES
-	(121, 10, 86, 'payment', 1),
-	(120, 10, 87, 'store', 0),
-	(128, 9, 86, 'shipping', 1),
-	(127, 9, 87, 'shipping', 2);
 /*!40000 ALTER TABLE `bf2_tax_rule` ENABLE KEYS */;
 
 
@@ -3247,7 +3413,7 @@ CREATE TABLE IF NOT EXISTS `bf2_url_alias` (
   PRIMARY KEY (`url_alias_id`),
   KEY `query` (`query`),
   KEY `keyword` (`keyword`)
-) ENGINE=MyISAM AUTO_INCREMENT=844 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=849 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_url_alias: 67 rows
 /*!40000 ALTER TABLE `bf2_url_alias` DISABLE KEYS */;
@@ -3257,7 +3423,7 @@ INSERT INTO `bf2_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 	(834, 'category_id=26', 'pc'),
 	(835, 'category_id=27', 'mac'),
 	(730, 'manufacturer_id=8', 'apple'),
-	(772, 'information_id=4', 'about_us'),
+	(846, 'information_id=4', 'about_us'),
 	(768, 'product_id=42', 'test'),
 	(789, 'category_id=34', 'mp3-players'),
 	(781, 'category_id=36', 'test2'),
@@ -3316,9 +3482,9 @@ INSERT INTO `bf2_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 	(830, 'manufacturer_id=7', 'hewlett-packard'),
 	(831, 'manufacturer_id=6', 'palm'),
 	(832, 'manufacturer_id=10', 'sony'),
-	(841, 'information_id=6', 'delivery'),
-	(842, 'information_id=3', 'privacy'),
-	(843, 'information_id=5', 'terms');
+	(848, 'information_id=6', 'delivery'),
+	(845, 'information_id=3', 'privacy'),
+	(847, 'information_id=5', 'terms');
 /*!40000 ALTER TABLE `bf2_url_alias` ENABLE KEYS */;
 
 
@@ -3344,7 +3510,7 @@ CREATE TABLE IF NOT EXISTS `bf2_user` (
 -- Copiando dados para a tabela bf2commerce.bf2_user: 1 rows
 /*!40000 ALTER TABLE `bf2_user` DISABLE KEYS */;
 INSERT INTO `bf2_user` (`user_id`, `user_group_id`, `username`, `password`, `salt`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-	(1, 1, 'bf2', '902b1bc9c944443987969216a2eabe4c3c70d232', '5RJwSM93C', 'John', 'Doe', 'jardel@bf2tecnologia.com.br', '', '', '', 1, '2016-11-21 15:51:06');
+	(1, 1, 'bf2', '902b1bc9c944443987969216a2eabe4c3c70d232', '5RJwSM93C', 'John', 'Doe', 'jardel@bf2tecnologia.com.br', '', '', '::1', 1, '2016-11-21 15:51:06');
 /*!40000 ALTER TABLE `bf2_user` ENABLE KEYS */;
 
 
@@ -3360,8 +3526,7 @@ CREATE TABLE IF NOT EXISTS `bf2_user_group` (
 -- Copiando dados para a tabela bf2commerce.bf2_user_group: 2 rows
 /*!40000 ALTER TABLE `bf2_user_group` DISABLE KEYS */;
 INSERT INTO `bf2_user_group` (`user_group_id`, `name`, `permission`) VALUES
-	(1, 'Administrator', '{"access":["catalog\\/attribute","catalog\\/attribute_group","catalog\\/category","catalog\\/download","catalog\\/filter","catalog\\/information","catalog\\/manufacturer","catalog\\/option","catalog\\/product","catalog\\/recurring","catalog\\/review","common\\/column_left","common\\/filemanager","customer\\/custom_field","customer\\/customer","customer\\/customer_group","design\\/banner","design\\/language","design\\/layout","design\\/menu","design\\/theme","design\\/translation","event\\/compatibility","event\\/theme","extension\\/analytics\\/google_analytics","extension\\/captcha\\/basic_captcha","extension\\/captcha\\/google_captcha","extension\\/dashboard\\/activity","extension\\/dashboard\\/chart","extension\\/dashboard\\/customer","extension\\/dashboard\\/map","extension\\/dashboard\\/online","extension\\/dashboard\\/order","extension\\/dashboard\\/recent","extension\\/dashboard\\/sale","extension\\/event","extension\\/extension","extension\\/extension\\/analytics","extension\\/extension\\/captcha","extension\\/extension\\/dashboard","extension\\/extension\\/feed","extension\\/extension\\/fraud","extension\\/extension\\/menu","extension\\/extension\\/module","extension\\/extension\\/payment","extension\\/extension\\/shipping","extension\\/extension\\/theme","extension\\/extension\\/total","extension\\/feed\\/google_base","extension\\/feed\\/google_sitemap","extension\\/feed\\/openbaypro","extension\\/fraud\\/fraudlabspro","extension\\/fraud\\/ip","extension\\/fraud\\/maxmind","extension\\/installer","extension\\/modification","extension\\/module\\/account","extension\\/module\\/affiliate","extension\\/module\\/amazon_login","extension\\/module\\/amazon_pay","extension\\/module\\/banner","extension\\/module\\/bestseller","extension\\/module\\/carousel","extension\\/module\\/category","extension\\/module\\/divido_calculator","extension\\/module\\/ebay_listing","extension\\/module\\/featured","extension\\/module\\/filter","extension\\/module\\/google_hangouts","extension\\/module\\/html","extension\\/module\\/information","extension\\/module\\/klarna_checkout_module","extension\\/module\\/latest","extension\\/module\\/laybuy_layout","extension\\/module\\/pilibaba_button","extension\\/module\\/pp_button","extension\\/module\\/pp_login","extension\\/module\\/sagepay_direct_cards","extension\\/module\\/sagepay_server_cards","extension\\/module\\/slideshow","extension\\/module\\/special","extension\\/module\\/store","extension\\/openbay","extension\\/openbay\\/amazon","extension\\/openbay\\/amazon_listing","extension\\/openbay\\/amazon_product","extension\\/openbay\\/amazonus","extension\\/openbay\\/amazonus_listing","extension\\/openbay\\/amazonus_product","extension\\/openbay\\/ebay","extension\\/openbay\\/ebay_profile","extension\\/openbay\\/ebay_template","extension\\/openbay\\/etsy","extension\\/openbay\\/etsy_product","extension\\/openbay\\/etsy_shipping","extension\\/openbay\\/etsy_shop","extension\\/openbay\\/fba","extension\\/payment\\/amazon_login_pay","extension\\/payment\\/authorizenet_aim","extension\\/payment\\/authorizenet_sim","extension\\/payment\\/bank_transfer","extension\\/payment\\/bluepay_hosted","extension\\/payment\\/bluepay_redirect","extension\\/payment\\/cardconnect","extension\\/payment\\/cardinity","extension\\/payment\\/cheque","extension\\/payment\\/cod","extension\\/payment\\/divido","extension\\/payment\\/eway","extension\\/payment\\/firstdata","extension\\/payment\\/firstdata_remote","extension\\/payment\\/free_checkout","extension\\/payment\\/g2apay","extension\\/payment\\/globalpay","extension\\/payment\\/globalpay_remote","extension\\/payment\\/klarna_account","extension\\/payment\\/klarna_checkout","extension\\/payment\\/klarna_invoice","extension\\/payment\\/laybuy","extension\\/payment\\/liqpay","extension\\/payment\\/nochex","extension\\/payment\\/paymate","extension\\/payment\\/paypoint","extension\\/payment\\/payza","extension\\/payment\\/perpetual_payments","extension\\/payment\\/pilibaba","extension\\/payment\\/pp_express","extension\\/payment\\/pp_payflow","extension\\/payment\\/pp_payflow_iframe","extension\\/payment\\/pp_pro","extension\\/payment\\/pp_pro_iframe","extension\\/payment\\/pp_standard","extension\\/payment\\/realex","extension\\/payment\\/realex_remote","extension\\/payment\\/sagepay_direct","extension\\/payment\\/sagepay_server","extension\\/payment\\/sagepay_us","extension\\/payment\\/securetrading_pp","extension\\/payment\\/securetrading_ws","extension\\/payment\\/skrill","extension\\/payment\\/twocheckout","extension\\/payment\\/web_payment_software","extension\\/payment\\/worldpay","extension\\/shipping\\/auspost","extension\\/shipping\\/citylink","extension\\/shipping\\/fedex","extension\\/shipping\\/flat","extension\\/shipping\\/free","extension\\/shipping\\/item","extension\\/shipping\\/parcelforce_48","extension\\/shipping\\/pickup","extension\\/shipping\\/royal_mail","extension\\/shipping\\/ups","extension\\/shipping\\/usps","extension\\/shipping\\/weight","extension\\/store","extension\\/theme\\/theme_default","extension\\/total\\/coupon","extension\\/total\\/credit","extension\\/total\\/handling","extension\\/total\\/klarna_fee","extension\\/total\\/low_order_fee","extension\\/total\\/reward","extension\\/total\\/shipping","extension\\/total\\/sub_total","extension\\/total\\/tax","extension\\/total\\/total","extension\\/total\\/voucher","localisation\\/country","localisation\\/currency","localisation\\/geo_zone","localisation\\/language","localisation\\/length_class","localisation\\/location","localisation\\/order_status","localisation\\/return_action","localisation\\/return_reason","localisation\\/return_status","localisation\\/stock_status","localisation\\/tax_class","localisation\\/tax_rate","localisation\\/weight_class","localisation\\/zone","marketing\\/affiliate","marketing\\/contact","marketing\\/coupon","marketing\\/marketing","report\\/affiliate","report\\/affiliate_activity","report\\/affiliate_login","report\\/customer_activity","report\\/customer_credit","report\\/customer_login","report\\/customer_online","report\\/customer_order","report\\/customer_reward","report\\/customer_search","report\\/marketing","report\\/product_purchased","report\\/product_viewed","report\\/sale_coupon","report\\/sale_order","report\\/sale_return","report\\/sale_shipping","report\\/sale_tax","sale\\/order","sale\\/recurring","sale\\/return","sale\\/voucher","sale\\/voucher_theme","setting\\/setting","setting\\/store","startup\\/compatibility","startup\\/error","startup\\/event","startup\\/login","startup\\/permission","startup\\/router","startup\\/sass","startup\\/startup","tool\\/backup","tool\\/log","tool\\/upload","user\\/api","user\\/user","user\\/user_permission"],"modify":["catalog\\/attribute","catalog\\/attribute_group","catalog\\/category","catalog\\/download","catalog\\/filter","catalog\\/information","catalog\\/manufacturer","catalog\\/option","catalog\\/product","catalog\\/recurring","catalog\\/review","common\\/column_left","common\\/filemanager","customer\\/custom_field","customer\\/customer","customer\\/customer_group","design\\/banner","design\\/language","design\\/layout","design\\/menu","design\\/theme","design\\/translation","event\\/compatibility","event\\/theme","extension\\/analytics\\/google_analytics","extension\\/captcha\\/basic_captcha","extension\\/captcha\\/google_captcha","extension\\/dashboard\\/activity","extension\\/dashboard\\/chart","extension\\/dashboard\\/customer","extension\\/dashboard\\/map","extension\\/dashboard\\/online","extension\\/dashboard\\/order","extension\\/dashboard\\/recent","extension\\/dashboard\\/sale","extension\\/event","extension\\/extension","extension\\/extension\\/analytics","extension\\/extension\\/captcha","extension\\/extension\\/dashboard","extension\\/extension\\/feed","extension\\/extension\\/fraud","extension\\/extension\\/menu","extension\\/extension\\/module","extension\\/extension\\/payment","extension\\/extension\\/shipping","extension\\/extension\\/theme","extension\\/extension\\/total","extension\\/feed\\/google_base","extension\\/feed\\/google_sitemap","extension\\/feed\\/openbaypro","extension\\/fraud\\/fraudlabspro","extension\\/fraud\\/ip","extension\\/fraud\\/maxmind","extension\\/installer","extension\\/modification","extension\\/module\\/account","extension\\/module\\/affiliate","extension\\/module\\/amazon_login","extension\\/module\\/amazon_pay","extension\\/module\\/banner","extension\\/module\\/bestseller","extension\\/module\\/carousel","extension\\/module\\/category","extension\\/module\\/divido_calculator","extension\\/module\\/ebay_listing","extension\\/module\\/featured","extension\\/module\\/filter","extension\\/module\\/google_hangouts","extension\\/module\\/html","extension\\/module\\/information","extension\\/module\\/klarna_checkout_module","extension\\/module\\/latest","extension\\/module\\/laybuy_layout","extension\\/module\\/pilibaba_button","extension\\/module\\/pp_button","extension\\/module\\/pp_login","extension\\/module\\/sagepay_direct_cards","extension\\/module\\/sagepay_server_cards","extension\\/module\\/slideshow","extension\\/module\\/special","extension\\/module\\/store","extension\\/openbay","extension\\/openbay\\/amazon","extension\\/openbay\\/amazon_listing","extension\\/openbay\\/amazon_product","extension\\/openbay\\/amazonus","extension\\/openbay\\/amazonus_listing","extension\\/openbay\\/amazonus_product","extension\\/openbay\\/ebay","extension\\/openbay\\/ebay_profile","extension\\/openbay\\/ebay_template","extension\\/openbay\\/etsy","extension\\/openbay\\/etsy_product","extension\\/openbay\\/etsy_shipping","extension\\/openbay\\/etsy_shop","extension\\/openbay\\/fba","extension\\/payment\\/amazon_login_pay","extension\\/payment\\/authorizenet_aim","extension\\/payment\\/authorizenet_sim","extension\\/payment\\/bank_transfer","extension\\/payment\\/bluepay_hosted","extension\\/payment\\/bluepay_redirect","extension\\/payment\\/cardconnect","extension\\/payment\\/cardinity","extension\\/payment\\/cheque","extension\\/payment\\/cod","extension\\/payment\\/divido","extension\\/payment\\/eway","extension\\/payment\\/firstdata","extension\\/payment\\/firstdata_remote","extension\\/payment\\/free_checkout","extension\\/payment\\/g2apay","extension\\/payment\\/globalpay","extension\\/payment\\/globalpay_remote","extension\\/payment\\/klarna_account","extension\\/payment\\/klarna_checkout","extension\\/payment\\/klarna_invoice","extension\\/payment\\/laybuy","extension\\/payment\\/liqpay","extension\\/payment\\/nochex","extension\\/payment\\/paymate","extension\\/payment\\/paypoint","extension\\/payment\\/payza","extension\\/payment\\/perpetual_payments","extension\\/payment\\/pilibaba","extension\\/payment\\/pp_express","extension\\/payment\\/pp_payflow","extension\\/payment\\/pp_payflow_iframe","extension\\/payment\\/pp_pro","extension\\/payment\\/pp_pro_iframe","extension\\/payment\\/pp_standard","extension\\/payment\\/realex","extension\\/payment\\/realex_remote","extension\\/payment\\/sagepay_direct","extension\\/payment\\/sagepay_server","extension\\/payment\\/sagepay_us","extension\\/payment\\/securetrading_pp","extension\\/payment\\/securetrading_ws","extension\\/payment\\/skrill","extension\\/payment\\/twocheckout","extension\\/payment\\/web_payment_software","extension\\/payment\\/worldpay","extension\\/shipping\\/auspost","extension\\/shipping\\/citylink","extension\\/shipping\\/fedex","extension\\/shipping\\/flat","extension\\/shipping\\/free","extension\\/shipping\\/item","extension\\/shipping\\/parcelforce_48","extension\\/shipping\\/pickup","extension\\/shipping\\/royal_mail","extension\\/shipping\\/ups","extension\\/shipping\\/usps","extension\\/shipping\\/weight","extension\\/store","extension\\/theme\\/theme_default","extension\\/total\\/coupon","extension\\/total\\/credit","extension\\/total\\/handling","extension\\/total\\/klarna_fee","extension\\/total\\/low_order_fee","extension\\/total\\/reward","extension\\/total\\/shipping","extension\\/total\\/sub_total","extension\\/total\\/tax","extension\\/total\\/total","extension\\/total\\/voucher","localisation\\/country","localisation\\/currency","localisation\\/geo_zone","localisation\\/language","localisation\\/length_class","localisation\\/location","localisation\\/order_status","localisation\\/return_action","localisation\\/return_reason","localisation\\/return_status","localisation\\/stock_status","localisation\\/tax_class","localisation\\/tax_rate","localisation\\/weight_class","localisation\\/zone","marketing\\/affiliate","marketing\\/contact","marketing\\/coupon","marketing\\/marketing","report\\/affiliate","report\\/affiliate_activity","report\\/affiliate_login","report\\/customer_activity","report\\/customer_credit","report\\/customer_login","report\\/customer_online","report\\/customer_order","report\\/customer_reward","report\\/customer_search","report\\/marketing","report\\/product_purchased","report\\/product_viewed","report\\/sale_coupon","report\\/sale_order","report\\/sale_return","report\\/sale_shipping","report\\/sale_tax","sale\\/order","sale\\/recurring","sale\\/return","sale\\/voucher","sale\\/voucher_theme","setting\\/setting","setting\\/store","startup\\/compatibility","startup\\/error","startup\\/event","startup\\/login","startup\\/permission","startup\\/router","startup\\/sass","startup\\/startup","tool\\/backup","tool\\/log","tool\\/upload","user\\/api","user\\/user","user\\/user_permission"]}'),
-	(10, 'Demonstration', '');
+	(1, 'Administrador', '{"access":["catalog\\/attribute","catalog\\/attribute_group","catalog\\/category","catalog\\/download","catalog\\/filter","catalog\\/information","catalog\\/manufacturer","catalog\\/option","catalog\\/product","catalog\\/recurring","catalog\\/review","common\\/column_left","common\\/filemanager","customer\\/custom_field","customer\\/customer","customer\\/customer_group","design\\/banner","design\\/language","design\\/layout","design\\/menu","design\\/theme","design\\/translation","event\\/compatibility","event\\/theme","extension\\/analytics\\/google_analytics","extension\\/captcha\\/basic_captcha","extension\\/captcha\\/google_captcha","extension\\/dashboard\\/activity","extension\\/dashboard\\/chart","extension\\/dashboard\\/customer","extension\\/dashboard\\/map","extension\\/dashboard\\/online","extension\\/dashboard\\/order","extension\\/dashboard\\/recent","extension\\/dashboard\\/sale","extension\\/event","extension\\/extension","extension\\/extension\\/analytics","extension\\/extension\\/captcha","extension\\/extension\\/dashboard","extension\\/extension\\/feed","extension\\/extension\\/fraud","extension\\/extension\\/module","extension\\/extension\\/payment","extension\\/extension\\/shipping","extension\\/extension\\/theme","extension\\/extension\\/total","extension\\/feed\\/google_base","extension\\/feed\\/google_sitemap","extension\\/feed\\/openbaypro","extension\\/fraud\\/fraudlabspro","extension\\/fraud\\/ip","extension\\/fraud\\/maxmind","extension\\/installer","extension\\/modification","extension\\/module\\/account","extension\\/module\\/affiliate","extension\\/module\\/amazon_login","extension\\/module\\/amazon_pay","extension\\/module\\/banner","extension\\/module\\/bestseller","extension\\/module\\/carousel","extension\\/module\\/category","extension\\/module\\/divido_calculator","extension\\/module\\/ebay_listing","extension\\/module\\/featured","extension\\/module\\/filter","extension\\/module\\/google_hangouts","extension\\/module\\/html","extension\\/module\\/information","extension\\/module\\/klarna_checkout_module","extension\\/module\\/latest","extension\\/module\\/laybuy_layout","extension\\/module\\/pilibaba_button","extension\\/module\\/pp_button","extension\\/module\\/pp_login","extension\\/module\\/sagepay_direct_cards","extension\\/module\\/sagepay_server_cards","extension\\/module\\/slideshow","extension\\/module\\/special","extension\\/module\\/store","extension\\/openbay","extension\\/openbay\\/amazon","extension\\/openbay\\/amazon_listing","extension\\/openbay\\/amazon_product","extension\\/openbay\\/amazonus","extension\\/openbay\\/amazonus_listing","extension\\/openbay\\/amazonus_product","extension\\/openbay\\/ebay","extension\\/openbay\\/ebay_profile","extension\\/openbay\\/ebay_template","extension\\/openbay\\/etsy","extension\\/openbay\\/etsy_product","extension\\/openbay\\/etsy_shipping","extension\\/openbay\\/etsy_shop","extension\\/openbay\\/fba","extension\\/payment\\/amazon_login_pay","extension\\/payment\\/authorizenet_aim","extension\\/payment\\/authorizenet_sim","extension\\/payment\\/bank_transfer","extension\\/payment\\/bluepay_hosted","extension\\/payment\\/bluepay_redirect","extension\\/payment\\/cardconnect","extension\\/payment\\/cardinity","extension\\/payment\\/cheque","extension\\/payment\\/cod","extension\\/payment\\/divido","extension\\/payment\\/eway","extension\\/payment\\/firstdata","extension\\/payment\\/firstdata_remote","extension\\/payment\\/free_checkout","extension\\/payment\\/g2apay","extension\\/payment\\/globalpay","extension\\/payment\\/globalpay_remote","extension\\/payment\\/klarna_account","extension\\/payment\\/klarna_checkout","extension\\/payment\\/klarna_invoice","extension\\/payment\\/laybuy","extension\\/payment\\/liqpay","extension\\/payment\\/nochex","extension\\/payment\\/paymate","extension\\/payment\\/paypoint","extension\\/payment\\/payza","extension\\/payment\\/perpetual_payments","extension\\/payment\\/pilibaba","extension\\/payment\\/pp_express","extension\\/payment\\/pp_payflow","extension\\/payment\\/pp_payflow_iframe","extension\\/payment\\/pp_pro","extension\\/payment\\/pp_pro_iframe","extension\\/payment\\/pp_standard","extension\\/payment\\/realex","extension\\/payment\\/realex_remote","extension\\/payment\\/sagepay_direct","extension\\/payment\\/sagepay_server","extension\\/payment\\/sagepay_us","extension\\/payment\\/securetrading_pp","extension\\/payment\\/securetrading_ws","extension\\/payment\\/skrill","extension\\/payment\\/twocheckout","extension\\/payment\\/web_payment_software","extension\\/payment\\/worldpay","extension\\/shipping\\/auspost","extension\\/shipping\\/citylink","extension\\/shipping\\/fedex","extension\\/shipping\\/flat","extension\\/shipping\\/free","extension\\/shipping\\/item","extension\\/shipping\\/parcelforce_48","extension\\/shipping\\/pickup","extension\\/shipping\\/royal_mail","extension\\/shipping\\/ups","extension\\/shipping\\/usps","extension\\/shipping\\/weight","extension\\/store","extension\\/theme\\/theme_default","extension\\/total\\/coupon","extension\\/total\\/credit","extension\\/total\\/handling","extension\\/total\\/klarna_fee","extension\\/total\\/low_order_fee","extension\\/total\\/reward","extension\\/total\\/shipping","extension\\/total\\/sub_total","extension\\/total\\/tax","extension\\/total\\/total","extension\\/total\\/voucher","localisation\\/country","localisation\\/currency","localisation\\/geo_zone","localisation\\/language","localisation\\/length_class","localisation\\/location","localisation\\/order_status","localisation\\/return_action","localisation\\/return_reason","localisation\\/return_status","localisation\\/stock_status","localisation\\/tax_class","localisation\\/tax_rate","localisation\\/weight_class","localisation\\/zone","marketing\\/affiliate","marketing\\/contact","marketing\\/coupon","marketing\\/marketing","report\\/affiliate","report\\/affiliate_activity","report\\/affiliate_login","report\\/customer_activity","report\\/customer_credit","report\\/customer_login","report\\/customer_online","report\\/customer_order","report\\/customer_reward","report\\/customer_search","report\\/marketing","report\\/product_purchased","report\\/product_viewed","report\\/sale_coupon","report\\/sale_order","report\\/sale_return","report\\/sale_shipping","report\\/sale_tax","sale\\/order","sale\\/recurring","sale\\/return","sale\\/voucher","sale\\/voucher_theme","setting\\/setting","setting\\/store","startup\\/error","startup\\/event","startup\\/login","startup\\/permission","startup\\/router","startup\\/sass","startup\\/startup","tool\\/backup","tool\\/log","tool\\/upload","user\\/api","user\\/user","user\\/user_permission"],"modify":["catalog\\/attribute","catalog\\/attribute_group","catalog\\/category","catalog\\/download","catalog\\/filter","catalog\\/information","catalog\\/manufacturer","catalog\\/option","catalog\\/product","catalog\\/recurring","catalog\\/review","common\\/column_left","common\\/filemanager","customer\\/custom_field","customer\\/customer","customer\\/customer_group","design\\/banner","design\\/language","design\\/layout","design\\/menu","design\\/theme","design\\/translation","event\\/compatibility","event\\/theme","extension\\/analytics\\/google_analytics","extension\\/captcha\\/basic_captcha","extension\\/captcha\\/google_captcha","extension\\/dashboard\\/activity","extension\\/dashboard\\/chart","extension\\/dashboard\\/customer","extension\\/dashboard\\/map","extension\\/dashboard\\/online","extension\\/dashboard\\/order","extension\\/dashboard\\/recent","extension\\/dashboard\\/sale","extension\\/event","extension\\/extension","extension\\/extension\\/analytics","extension\\/extension\\/captcha","extension\\/extension\\/dashboard","extension\\/extension\\/feed","extension\\/extension\\/fraud","extension\\/extension\\/module","extension\\/extension\\/payment","extension\\/extension\\/shipping","extension\\/extension\\/theme","extension\\/extension\\/total","extension\\/feed\\/google_base","extension\\/feed\\/google_sitemap","extension\\/feed\\/openbaypro","extension\\/fraud\\/fraudlabspro","extension\\/fraud\\/ip","extension\\/fraud\\/maxmind","extension\\/installer","extension\\/modification","extension\\/module\\/account","extension\\/module\\/affiliate","extension\\/module\\/amazon_login","extension\\/module\\/amazon_pay","extension\\/module\\/banner","extension\\/module\\/bestseller","extension\\/module\\/carousel","extension\\/module\\/category","extension\\/module\\/divido_calculator","extension\\/module\\/ebay_listing","extension\\/module\\/featured","extension\\/module\\/filter","extension\\/module\\/google_hangouts","extension\\/module\\/html","extension\\/module\\/information","extension\\/module\\/klarna_checkout_module","extension\\/module\\/latest","extension\\/module\\/laybuy_layout","extension\\/module\\/pilibaba_button","extension\\/module\\/pp_button","extension\\/module\\/pp_login","extension\\/module\\/sagepay_direct_cards","extension\\/module\\/sagepay_server_cards","extension\\/module\\/slideshow","extension\\/module\\/special","extension\\/module\\/store","extension\\/openbay","extension\\/openbay\\/amazon","extension\\/openbay\\/amazon_listing","extension\\/openbay\\/amazon_product","extension\\/openbay\\/amazonus","extension\\/openbay\\/amazonus_listing","extension\\/openbay\\/amazonus_product","extension\\/openbay\\/ebay","extension\\/openbay\\/ebay_profile","extension\\/openbay\\/ebay_template","extension\\/openbay\\/etsy","extension\\/openbay\\/etsy_product","extension\\/openbay\\/etsy_shipping","extension\\/openbay\\/etsy_shop","extension\\/openbay\\/fba","extension\\/payment\\/amazon_login_pay","extension\\/payment\\/authorizenet_aim","extension\\/payment\\/authorizenet_sim","extension\\/payment\\/bank_transfer","extension\\/payment\\/bluepay_hosted","extension\\/payment\\/bluepay_redirect","extension\\/payment\\/cardconnect","extension\\/payment\\/cardinity","extension\\/payment\\/cheque","extension\\/payment\\/cod","extension\\/payment\\/divido","extension\\/payment\\/eway","extension\\/payment\\/firstdata","extension\\/payment\\/firstdata_remote","extension\\/payment\\/free_checkout","extension\\/payment\\/g2apay","extension\\/payment\\/globalpay","extension\\/payment\\/globalpay_remote","extension\\/payment\\/klarna_account","extension\\/payment\\/klarna_checkout","extension\\/payment\\/klarna_invoice","extension\\/payment\\/laybuy","extension\\/payment\\/liqpay","extension\\/payment\\/nochex","extension\\/payment\\/paymate","extension\\/payment\\/paypoint","extension\\/payment\\/payza","extension\\/payment\\/perpetual_payments","extension\\/payment\\/pilibaba","extension\\/payment\\/pp_express","extension\\/payment\\/pp_payflow","extension\\/payment\\/pp_payflow_iframe","extension\\/payment\\/pp_pro","extension\\/payment\\/pp_pro_iframe","extension\\/payment\\/pp_standard","extension\\/payment\\/realex","extension\\/payment\\/realex_remote","extension\\/payment\\/sagepay_direct","extension\\/payment\\/sagepay_server","extension\\/payment\\/sagepay_us","extension\\/payment\\/securetrading_pp","extension\\/payment\\/securetrading_ws","extension\\/payment\\/skrill","extension\\/payment\\/twocheckout","extension\\/payment\\/web_payment_software","extension\\/payment\\/worldpay","extension\\/shipping\\/auspost","extension\\/shipping\\/citylink","extension\\/shipping\\/fedex","extension\\/shipping\\/flat","extension\\/shipping\\/free","extension\\/shipping\\/item","extension\\/shipping\\/parcelforce_48","extension\\/shipping\\/pickup","extension\\/shipping\\/royal_mail","extension\\/shipping\\/ups","extension\\/shipping\\/usps","extension\\/shipping\\/weight","extension\\/store","extension\\/theme\\/theme_default","extension\\/total\\/coupon","extension\\/total\\/credit","extension\\/total\\/handling","extension\\/total\\/klarna_fee","extension\\/total\\/low_order_fee","extension\\/total\\/reward","extension\\/total\\/shipping","extension\\/total\\/sub_total","extension\\/total\\/tax","extension\\/total\\/total","extension\\/total\\/voucher","localisation\\/country","localisation\\/currency","localisation\\/geo_zone","localisation\\/language","localisation\\/length_class","localisation\\/location","localisation\\/order_status","localisation\\/return_action","localisation\\/return_reason","localisation\\/return_status","localisation\\/stock_status","localisation\\/tax_class","localisation\\/tax_rate","localisation\\/weight_class","localisation\\/zone","marketing\\/affiliate","marketing\\/contact","marketing\\/coupon","marketing\\/marketing","report\\/affiliate","report\\/affiliate_activity","report\\/affiliate_login","report\\/customer_activity","report\\/customer_credit","report\\/customer_login","report\\/customer_online","report\\/customer_order","report\\/customer_reward","report\\/customer_search","report\\/marketing","report\\/product_purchased","report\\/product_viewed","report\\/sale_coupon","report\\/sale_order","report\\/sale_return","report\\/sale_shipping","report\\/sale_tax","sale\\/order","sale\\/recurring","sale\\/return","sale\\/voucher","sale\\/voucher_theme","setting\\/setting","setting\\/store","startup\\/error","startup\\/event","startup\\/login","startup\\/permission","startup\\/router","startup\\/sass","startup\\/startup","tool\\/backup","tool\\/log","tool\\/upload","user\\/api","user\\/user","user\\/user_permission"]}');
 /*!40000 ALTER TABLE `bf2_user_group` ENABLE KEYS */;
 
 
@@ -3430,9 +3595,12 @@ CREATE TABLE IF NOT EXISTS `bf2_voucher_theme_description` (
   PRIMARY KEY (`voucher_theme_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_voucher_theme_description: 3 rows
+-- Copiando dados para a tabela bf2commerce.bf2_voucher_theme_description: 6 rows
 /*!40000 ALTER TABLE `bf2_voucher_theme_description` DISABLE KEYS */;
 INSERT INTO `bf2_voucher_theme_description` (`voucher_theme_id`, `language_id`, `name`) VALUES
+	(6, 2, 'Natal'),
+	(7, 2, 'Aniversário'),
+	(8, 2, 'Geral'),
 	(6, 1, 'Christmas'),
 	(7, 1, 'Birthday'),
 	(8, 1, 'General');
@@ -3467,9 +3635,13 @@ CREATE TABLE IF NOT EXISTS `bf2_weight_class_description` (
   PRIMARY KEY (`weight_class_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela bf2commerce.bf2_weight_class_description: 4 rows
+-- Copiando dados para a tabela bf2commerce.bf2_weight_class_description: 8 rows
 /*!40000 ALTER TABLE `bf2_weight_class_description` DISABLE KEYS */;
 INSERT INTO `bf2_weight_class_description` (`weight_class_id`, `language_id`, `title`, `unit`) VALUES
+	(1, 2, 'Quilograma', 'kg'),
+	(2, 2, 'Grama', 'g'),
+	(5, 2, 'Libra', 'lb'),
+	(6, 2, 'Onça', 'oz'),
 	(1, 1, 'Kilogram', 'kg'),
 	(2, 1, 'Gram', 'g'),
 	(5, 1, 'Pound ', 'lb'),
@@ -7613,120 +7785,12 @@ CREATE TABLE IF NOT EXISTS `bf2_zone_to_geo_zone` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`zone_to_geo_zone_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela bf2commerce.bf2_zone_to_geo_zone: 109 rows
 /*!40000 ALTER TABLE `bf2_zone_to_geo_zone` DISABLE KEYS */;
 INSERT INTO `bf2_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id`, `geo_zone_id`, `date_added`, `date_modified`) VALUES
-	(1, 222, 0, 4, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(2, 222, 3513, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(3, 222, 3514, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(4, 222, 3515, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(5, 222, 3516, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(6, 222, 3517, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(7, 222, 3518, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(8, 222, 3519, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(9, 222, 3520, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(10, 222, 3521, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(11, 222, 3522, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(12, 222, 3523, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(13, 222, 3524, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(14, 222, 3525, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(15, 222, 3526, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(16, 222, 3527, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(17, 222, 3528, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(18, 222, 3529, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(19, 222, 3530, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(20, 222, 3531, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(21, 222, 3532, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(22, 222, 3533, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(23, 222, 3534, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(24, 222, 3535, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(25, 222, 3536, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(26, 222, 3537, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(27, 222, 3538, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(28, 222, 3539, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(29, 222, 3540, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(30, 222, 3541, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(31, 222, 3542, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(32, 222, 3543, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(33, 222, 3544, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(34, 222, 3545, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(35, 222, 3546, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(36, 222, 3547, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(37, 222, 3548, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(38, 222, 3549, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(39, 222, 3550, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(40, 222, 3551, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(41, 222, 3552, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(42, 222, 3553, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(43, 222, 3554, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(44, 222, 3555, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(45, 222, 3556, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(46, 222, 3557, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(47, 222, 3558, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(48, 222, 3559, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(49, 222, 3560, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(50, 222, 3561, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(51, 222, 3562, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(52, 222, 3563, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(53, 222, 3564, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(54, 222, 3565, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(55, 222, 3566, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(56, 222, 3567, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(57, 222, 3568, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(58, 222, 3569, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(59, 222, 3570, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(60, 222, 3571, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(61, 222, 3572, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(62, 222, 3573, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(63, 222, 3574, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(64, 222, 3575, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(65, 222, 3576, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(66, 222, 3577, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(67, 222, 3578, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(68, 222, 3579, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(69, 222, 3580, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(70, 222, 3581, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(71, 222, 3582, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(72, 222, 3583, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(73, 222, 3584, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(74, 222, 3585, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(75, 222, 3586, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(76, 222, 3587, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(77, 222, 3588, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(78, 222, 3589, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(79, 222, 3590, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(80, 222, 3591, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(81, 222, 3592, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(82, 222, 3593, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(83, 222, 3594, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(84, 222, 3595, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(85, 222, 3596, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(86, 222, 3597, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(87, 222, 3598, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(88, 222, 3599, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(89, 222, 3600, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(90, 222, 3601, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(91, 222, 3602, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(92, 222, 3603, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(93, 222, 3604, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(94, 222, 3605, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(95, 222, 3606, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(96, 222, 3607, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(97, 222, 3608, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(98, 222, 3609, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(99, 222, 3610, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(100, 222, 3611, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(101, 222, 3612, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(102, 222, 3949, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(103, 222, 3950, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(104, 222, 3951, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(105, 222, 3952, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(106, 222, 3953, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(107, 222, 3954, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(108, 222, 3955, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(109, 222, 3972, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(110, 30, 0, 5, '2016-11-23 17:13:35', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `bf2_zone_to_geo_zone` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
