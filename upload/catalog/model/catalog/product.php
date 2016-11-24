@@ -306,6 +306,31 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
+	public function getMostViewedProducts($limit) {
+		
+		$product_data = $this->cache->get('product.most_viewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
+
+		if (!$product_data) {
+			$product_data = array();
+			
+			$sql = "SELECT p.product_id, p.viewed
+					FROM ".DB_PREFIX."product AS p
+					WHERE p.status = '1' 
+					ORDER BY viewed DESC	
+					LIMIT " . (int)$limit;		
+					
+			$query = $this->db->query($sql);
+
+			foreach ($query->rows as $result) {
+				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			}
+
+			$this->cache->set('product.most_viewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit, $product_data);
+		}
+
+		return $product_data;
+	}
+
 	public function getProductAttributes($product_id) {
 		$product_attribute_group_data = array();
 
