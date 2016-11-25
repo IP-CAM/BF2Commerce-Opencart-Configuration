@@ -33,12 +33,10 @@ class ControllerCommonDashboard extends Controller {
 
 		// Get a list of installed modules
 		$extensions = $this->model_extension_extension->getInstalled('dashboard');
-		
 		// Add all the modules which have multiple settings for each module
 		foreach ($extensions as $code) {
 			if ($this->config->get('dashboard_' . $code . '_status') && $this->user->hasPermission('access', 'extension/dashboard/' . $code)) {
-				$output = $this->load->controller('extension/dashboard/' . $code . '/dashboard');
-				
+				$output = $this->load->controller('extension/dashboard/' . $code . '/dashboard');				
 				if ($output) {
 					$dashboards[] = array(
 						'code'       => $code,
