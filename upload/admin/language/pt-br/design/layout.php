@@ -16,6 +16,7 @@ $_['text_content_bottom'] = 'Rodapé do conteúdo';
 $_['text_column_left']    = 'Coluna da esquerda';
 $_['text_column_right']   = 'Coluna da direita';
 $_['text_footer_middle']    = 'Rodapé Meio';
+$_['text_product_social_share']    = 'Social Share Produto';
 
 // Column
 $_['column_name']         = 'Layout';

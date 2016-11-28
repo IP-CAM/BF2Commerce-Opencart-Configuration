@@ -65,7 +65,13 @@ class ControllerExtensionModuleSocialNetwork extends Controller {
 		//texto de campo select
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
+		$data['text_follow'] = $this->language->get('text_follow');
+		$data['text_share'] = $this->language->get('text_share');
+		$data['text_related'] = $this->language->get('text_related');
 		//texto de campos
+		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_tool'] = $this->language->get('entry_tool');
 		$data['entry_id_addthis'] = $this->language->get('entry_id_addthis');
 		$data['help_id_addthis'] = $this->language->get('help_id_addthis');
 
@@ -84,11 +90,18 @@ class ControllerExtensionModuleSocialNetwork extends Controller {
 		}
 		
 		//menos de 3 caracteres ou mais de 64
+		if (isset($this->error['name'])) {
+			$data['error_name'] = $this->error['name'];
+		} else {
+			$data['error_name'] = '';
+		}
+		
 		if (isset($this->error['addthis'])) {
 			$data['error_addthis'] = $this->error['addthis'];
 		} else {
 			$data['error_addthis'] = '';
 		}
+
 
 
 		/*
@@ -146,12 +159,36 @@ class ControllerExtensionModuleSocialNetwork extends Controller {
 
 		//carregar os campos
 		//campo nome
+		if (isset($this->request->post['name'])) {
+			$data['name'] = $this->request->post['name'];
+		} elseif (!empty($module_info)) {
+			$data['name'] = $module_info['name'];
+		} else {
+			$data['name'] = '';
+		}
+		
 		if (isset($this->request->post['addthis'])) {
 			$data['addthis'] = $this->request->post['addthis'];
 		} elseif (!empty($module_info)) {
 			$data['addthis'] = $module_info['addthis'];
 		} else {
 			$data['addthis'] = '';
+		}
+		
+		if (isset($this->request->post['tool'])) {
+			$data['tool'] = $this->request->post['tool'];
+		} elseif (!empty($module_info)) {
+			$data['tool'] = $module_info['tool'];
+		} else {
+			$data['tool'] = '';
+		}
+		
+		if (isset($this->request->post['status'])) {
+			$data['status'] = $this->request->post['status'];
+		} elseif (!empty($module_info)) {
+			$data['status'] = $module_info['status'];
+		} else {
+			$data['status'] = '';
 		}
 		
 		/*
@@ -170,8 +207,20 @@ class ControllerExtensionModuleSocialNetwork extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
+		if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 64)) {
+			$this->error['name'] = $this->language->get('error_name');
+		}
+		
 		if (!$this->request->post['addthis']) {
 			$this->error['addthis'] = $this->language->get('error_addthis');
+		}
+
+		if (!$this->request->post['tool']) {
+			$this->error['tool'] = $this->language->get('error_tool');
+		}
+
+		if (!$this->request->post['status']) {
+			$this->error['status'] = $this->language->get('error_status');
 		}
 
 		return !$this->error;

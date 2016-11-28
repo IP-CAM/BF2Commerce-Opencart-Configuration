@@ -16,6 +16,7 @@ $_['text_content_bottom'] = 'Content Bottom';
 $_['text_column_left']    = 'Column Left';
 $_['text_column_right']   = 'Column Right';
 $_['text_footer_middle']    = 'Footer Middle';
+$_['text_product_social_share']    = 'Product Social Share';
 // Column
 $_['column_name']         = 'Layout Name';
 $_['column_action']       = 'Action';

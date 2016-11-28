@@ -41,20 +41,57 @@
 	  
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-social_network" class="form-horizontal">
-          
-		  <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-addthis"><span data-toggle="tooltip" title="<?php echo $help_id_addthis; ?>"><?php echo $entry_id_addthis; ?></span></label>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="addthis" value="<?php echo $addthis; ?>" placeholder="<?php echo $entry_id_addthis; ?>" id="input-addthis" class="form-control" />
-              <?php if ($error_addthis) { ?>
-              <div class="text-danger"><?php echo $error_addthis; ?></div>
+              <input type="text" name="name" value="<?php echo $name; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name" class="form-control" />
+              <?php if ($error_name) { ?>
+              <div class="text-danger"><?php echo $error_name; ?></div>
               <?php } ?>
             </div>
+          </div>
+  		     <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-addthis"><span data-toggle="tooltip" title="<?php echo $help_id_addthis; ?>"><?php echo $entry_id_addthis; ?></span></label>
+              <div class="col-sm-10">
+                <input type="text" name="addthis" value="<?php echo $addthis; ?>" placeholder="<?php echo $entry_id_addthis; ?>" id="input-addthis" class="form-control" />
+                <?php if ($error_addthis) { ?>
+                <div class="text-danger"><?php echo $error_addthis; ?></div>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-tool"><?php echo $entry_tool; ?></label>
+                <div class="col-sm-10">
+                  <select name="tool" id="input-tool" class="form-control">
+                  <option value="addthis_inline_follow_toolbox" <?php echo ($tool == 'addthis_inline_follow_toolbox') ? 'selected="selected"':'';?>>
+                    <?php echo $text_follow; ?>
+                  </option>
+                  <option value="addthis_inline_share_toolbox" <?php echo ($tool == 'addthis_inline_share_toolbox') ? 'selected="selected"':'';?>>
+                    <?php echo $text_share; ?>
+                  </option>
+                  <option value="addthis_relatedpost_inline" <?php echo ($tool == 'addthis_relatedpost_inline') ? 'selected="selected"':'';?>>
+                    <?php echo $text_related; ?>
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+              <div class="col-sm-10">
+                <select name="status" id="input-status" class="form-control">
+                  <?php if ($status) { ?>
+                  <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                  <option value="0"><?php echo $text_disabled; ?></option>
+                  <?php } else { ?>
+                  <option value="1"><?php echo $text_enabled; ?></option>
+                  <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
 <?php echo $footer; ?>
