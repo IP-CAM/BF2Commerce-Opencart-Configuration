@@ -411,15 +411,15 @@
                     </tr>
                   </tfoot>
                 </table>
-                <table id="module-product-social-share" class="table table-striped table-bordered table-hover">
+                <table id="module-product-socialshare" class="table table-striped table-bordered table-hover">
                   <thead>
                     <tr>
-                      <td class="text-center"><?php echo $text_product_social_share; ?></td>
+                      <td class="text-center"><?php echo $text_product_socialshare; ?></td>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($layout_modules as $layout_module) { ?>
-                    <?php if ($layout_module['position'] == 'product_social_share') { ?>
+                    <?php if ($layout_module['position'] == 'product_socialshare') { ?>
                     <tr id="module-row<?php echo $module_row; ?>">
                       <td class="text-left"><div class="input-group">
                           <select name="layout_module[<?php echo $module_row; ?>][code]" class="form-control input-sm">
@@ -471,7 +471,7 @@
                             <?php } ?>
                           </select>
                           <div class="input-group-btn">
-                            <button type="button" onclick="addModule('product-social-share');" data-toggle="tooltip" title="<?php echo $button_module_add; ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></button>
+                            <button type="button" onclick="addModule('product-socialshare');" data-toggle="tooltip" title="<?php echo $button_module_add; ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i></button>
                           </div>
                         </div></td>
                     </tr>
@@ -539,7 +539,7 @@ function addModule(type) {
 	module_row++;
 }
 
-$('#module-column-left, #module-product-social-share, #module-column-right, #module-content-top, #module-content-bottom, #module-footer-middle').delegate('select[name*=\'code\']', 'change', function() {
+$('#module-column-left, #module-column-right, #module-content-top, #module-content-bottom').delegate('select[name*=\'code\']', 'change', function() {
 	var part = this.value.split('.');
 	
 	if (!part[1]) {
@@ -549,7 +549,20 @@ $('#module-column-left, #module-product-social-share, #module-column-right, #mod
 	}
 });
 
-$('#module-column-left, #module-product-social-share, #module-column-right, #module-content-top, #module-content-bottom, #module-footer-middle').trigger('change');
+$('#module-column-left, #module-column-right, #module-content-top, #module-content-bottom').trigger('change');
+
+
+$('#module-product-socialshare, #module-footer-middle').delegate('select[name*=\'code\']', 'change', function() {
+  var part = this.value.split('.');
+  
+  if (!part[1]) {
+    $(this).parent().find('a').attr('href', 'index.php?route=extension/module/' + part[0] + '&token=<?php echo $token; ?>');
+  } else {
+    $(this).parent().find('a').attr('href', 'index.php?route=extension/module/' + part[0] + '&token=<?php echo $token; ?>&module_id=' + part[1]);
+  }
+});
+
+$('#module-product-socialshare, #module-footer-middle').trigger('change');
 //--></script> 
 </div>
 <?php echo $footer; ?>

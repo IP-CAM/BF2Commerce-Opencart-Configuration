@@ -312,7 +312,7 @@
               <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
             <hr>
            <!-- Social Network -->
-			     <?php echo $product_social_share;?>
+			     <?php echo $product_socialshare;?>
 		   
           </div>
           <?php } ?>

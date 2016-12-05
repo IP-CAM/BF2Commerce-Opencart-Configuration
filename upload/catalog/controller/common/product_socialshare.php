@@ -43,7 +43,7 @@ class ControllerCommonProductSocialShare extends Controller {
 
 		$data['modules'] = array();
 
-		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'product_social_share');
+		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'product_socialshare');
 
 		foreach ($modules as $module) {
 			$part = explode('.', $module['code']);
@@ -69,6 +69,6 @@ class ControllerCommonProductSocialShare extends Controller {
 			}
 		}
 
-		return $this->load->view('common/product_social_share', $data);
+		return $this->load->view('common/product_socialshare', $data);
 	}
 }

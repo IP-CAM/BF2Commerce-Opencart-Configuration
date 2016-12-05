@@ -468,7 +468,7 @@ class ControllerProductProduct extends Controller {
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 
-			$data['product_social_share'] = $this->load->controller('common/product_social_share');			
+			$data['product_socialshare'] = $this->load->controller('common/product_socialshare');			
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
