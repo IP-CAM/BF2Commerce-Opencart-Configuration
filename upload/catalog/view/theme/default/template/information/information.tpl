@@ -15,7 +15,19 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
-      <?php echo $description; ?><?php echo $content_bottom; ?></div>
+      <?php echo $description; ?>
+
+          <?php if(isset($information_images) and count($information_images)>0){ ?>
+            <div class="row">
+              <?php foreach ($information_images as $information_image) { ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <img class="img-responsive" src="<?php echo $information_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" />
+                </div>  
+              <?php } ?>
+            </div>
+          <?php } ?>
+
+      <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

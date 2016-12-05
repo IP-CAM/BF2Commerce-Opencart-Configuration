@@ -26,6 +26,7 @@ $_['entry_bottom']           = 'Exibir no rodapé';
 $_['entry_status']           = 'Situação';
 $_['entry_sort_order']       = 'Posição';
 $_['entry_layout']           = 'Layout substituto';
+$_['entry_image']          	 = 'Imagem';
 
 // Help
 $_['help_keyword']           = 'Não utilize espaços, substitua os espaços por - (hífen), e certifique-se que a palavra é exclusiva em toda a loja.';

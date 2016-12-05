@@ -278,16 +278,23 @@ class ControllerCatalogInformation extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_layout'] = $this->language->get('entry_layout');
+		$data['entry_image'] = $this->language->get('entry_image');
+
 
 		$data['help_keyword'] = $this->language->get('help_keyword');
 		$data['help_bottom'] = $this->language->get('help_bottom');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
+		
+		$data['button_image_add'] = $this->language->get('button_image_add');
+		$data['button_remove'] = $this->language->get('button_remove');
+		
 
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_design'] = $this->language->get('tab_design');
+		$data['tab_image'] = $this->language->get('tab_image');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -421,6 +428,36 @@ class ControllerCatalogInformation extends Controller {
 			$data['information_layout'] = $this->model_catalog_information->getInformationLayouts($this->request->get['information_id']);
 		} else {
 			$data['information_layout'] = array();
+		}
+
+		$this->load->model('tool/image');
+		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		
+		// Images
+		if (isset($this->request->post['information_image'])) {
+			$information_images = $this->request->post['information_image'];
+		} elseif (isset($this->request->get['information_id'])) {
+			$information_images = $this->model_catalog_information->getInformationImages($this->request->get['information_id']);
+		} else {
+			$information_images = array();
+		}
+
+		$data['information_images'] = array();
+		
+		foreach ($information_images as $product_image) {
+			if (is_file(DIR_IMAGE . $product_image['image'])) {
+				$image = $product_image['image'];
+				$thumb = $product_image['image'];
+			} else {
+				$image = '';
+				$thumb = 'no_image.png';
+			}
+
+			$data['information_images'][] = array(
+				'image'      => $image,
+				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'sort_order' => $product_image['sort_order']
+			);
 		}
 
 		$this->load->model('design/layout');

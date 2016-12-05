@@ -21,4 +21,10 @@ class ModelCatalogInformation extends Model {
 			return 0;
 		}
 	}
+	public function getInformationImages($information_id) {
+	$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "information_image WHERE information_id = '" . (int)$information_id . "' ORDER BY sort_order ASC");
+
+	return $query->rows;
+	}	
+
 }

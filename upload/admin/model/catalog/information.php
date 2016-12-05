@@ -25,6 +25,12 @@ class ModelCatalogInformation extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'information_id=" . (int)$information_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
+		if (isset($data['information_image'])) {
+			foreach ($data['information_image'] as $information_image) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "information_image SET information_id = '" . (int)$information_id . "', image = '" . $this->db->escape($information_image['image']) . "', sort_order = '" . (int)$information_image['sort_order'] . "'");
+			}
+		}
+
 		$this->cache->delete('information');
 
 		return $information_id;
@@ -59,6 +65,14 @@ class ModelCatalogInformation extends Model {
 
 		if ($data['keyword']) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'information_id=" . (int)$information_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+		}
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "information_image WHERE information_id = '" . (int)$information_id . "'");
+
+		if (isset($data['information_image'])) {
+			foreach ($data['information_image'] as $information_image) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "information_image SET information_id = '" . (int)$information_id . "', image = '" . $this->db->escape($information_image['image']) . "', sort_order = '" . (int)$information_image['sort_order'] . "'");
+			}
 		}
 
 		$this->cache->delete('information');
@@ -184,4 +198,9 @@ class ModelCatalogInformation extends Model {
 
 		return $query->row['total'];
 	}
+	public function getInformationImages($information_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "information_image WHERE information_id = '" . (int)$information_id . "' ORDER BY sort_order ASC");
+
+		return $query->rows;
+	}	
 }

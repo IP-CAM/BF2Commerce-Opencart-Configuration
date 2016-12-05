@@ -45,7 +45,37 @@ class ControllerInformationInformation extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+			$this->load->model('tool/image');
+			$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+			
+			// Images
+			$information_images = array();
+			$information_images = $this->model_catalog_information->getInformationImages($information_id);
+			
+			$data['information_images'] = array();
+			
+			foreach ($information_images as $information_image) {
+				if (is_file(DIR_IMAGE . $information_image['image'])) {
+					$image = $information_image['image'];
+					$thumb = $information_image['image'];
+				} else {
+					$image = '';
+					$thumb = 'no_image.png';
+				}
+
+				$data['information_images'][] = array(
+					'image'      => $image,
+					'thumb'      => $this->model_tool_image->resize($thumb, 1024, 768,'wh'),
+					'sort_order' => $information_image['sort_order']
+				);
+			}
+			
+			
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/information.tpl')) {
+				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/information/information.tpl', $data));
+			} else {
 			$this->response->setOutput($this->load->view('information/information', $data));
+			}
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
