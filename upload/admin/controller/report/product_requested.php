@@ -1,6 +1,7 @@
 <?php
 class ControllerReportProductRequested extends Controller {
 	public function index() {
+
 		$this->load->language('report/product_requested');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -17,11 +18,26 @@ class ControllerReportProductRequested extends Controller {
 			$filter_date_end = '';
 		}
 
-		if (isset($this->request->get['filter_order_status_id'])) {
-			$filter_order_status_id = $this->request->get['filter_order_status_id'];
+		if (isset($this->request->get['filter_quantity'])) {
+			$filter_quantity = $this->request->get['filter_quantity'];
 		} else {
-			$filter_order_status_id = 0;
+			$filter_quantity = '';
 		}
+
+		if (isset($this->request->get['filter_model'])) {
+			$filter_model = $this->request->get['filter_model'];
+		} else {
+			$filter_model = '';
+		}
+
+		if (isset($this->request->get['filter_product'])) {
+			$filter_product = $this->request->get['filter_product'];
+		} else {
+			$filter_product = '';
+		}
+
+
+
 
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
@@ -38,50 +54,65 @@ class ControllerReportProductRequested extends Controller {
 		if (isset($this->request->get['filter_date_end'])) {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
 		}
-
-		if (isset($this->request->get['filter_order_status_id'])) {
-			$url .= '&filter_order_status_id=' . $this->request->get['filter_order_status_id'];
+		
+		if (isset($this->request->get['filter_quantity'])) {
+			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
 		}
+
+		if (isset($this->request->get['filter_model'])) {
+			$url .= '&filter_model=' . $this->request->get['filter_model'];
+		}
+
+		if (isset($this->request->get['filter_product'])) {
+			$url .= '&filter_product=' . $this->request->get['filter_product'];
+		}
+
 
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
 		}
+
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
-		);
+			);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('report/product_requested', 'token=' . $this->session->data['token'] . $url, true)
-		);
+			);
 
 		$this->load->model('report/product');
+
 
 		$data['products'] = array();
 
 		$filter_data = array(
 			'filter_date_start'	     => $filter_date_start,
 			'filter_date_end'	     => $filter_date_end,
-			'filter_order_status_id' => $filter_order_status_id,
+			'filter_quantity'	     => $filter_quantity,
+			'filter_model'	     	 => $filter_model,
+			'filter_product'	     => $filter_product,
 			'start'                  => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'                  => $this->config->get('config_limit_admin')
-		);
+			);
 
-		$product_total = $this->model_report_product->getTotalPurchased($filter_data);
+		$product_total = $this->model_report_product->getTotalRequested($filter_data);
 
-		$results = $this->model_report_product->getPurchased($filter_data);
+		$results = $this->model_report_product->getRequested($filter_data);
+
+
 
 		foreach ($results as $result) {
 			$data['products'][] = array(
-				'name'       => $result['name'],
-				'model'      => $result['model'],
-				'quantity'   => $result['quantity'],
-				'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
-			);
+				'name'       => $result['product_name'],
+				'model'      => $result['product_model'],
+				'quantity'   => $result['product_quantity'],
+				'action'  	 => $result['product_notified']	
+				);
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -100,6 +131,8 @@ class ControllerReportProductRequested extends Controller {
 		$data['entry_date_end'] = $this->language->get('entry_date_end');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_model'] = $this->language->get('entry_model');
+		$data['entry_product'] = $this->language->get('entry_product');
+
 
 		$data['button_filter'] = $this->language->get('button_filter');
 
@@ -111,6 +144,7 @@ class ControllerReportProductRequested extends Controller {
 
 		$url = '';
 
+
 		if (isset($this->request->get['filter_date_start'])) {
 			$url .= '&filter_date_start=' . $this->request->get['filter_date_start'];
 		}
@@ -119,9 +153,16 @@ class ControllerReportProductRequested extends Controller {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
 		}
 
-		if (isset($this->request->get['filter_order_status_id'])) {
-			$url .= '&filter_order_status_id=' . $this->request->get['filter_order_status_id'];
+		if (isset($this->request->get['filter_quantity'])) {
+			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
 		}
+		if (isset($this->request->get['filter_model'])) {
+			$url .= '&filter_model=' . $this->request->get['filter_model'];
+		}
+		if (isset($this->request->get['filter_product'])) {
+			$url .= '&filter_product=' . $this->request->get['filter_product'];
+		}
+
 
 		$pagination = new Pagination();
 		$pagination->total = $product_total;
@@ -135,7 +176,10 @@ class ControllerReportProductRequested extends Controller {
 
 		$data['filter_date_start'] = $filter_date_start;
 		$data['filter_date_end'] = $filter_date_end;
-		$data['filter_order_status_id'] = $filter_order_status_id;
+		$data['filter_quantity'] = $filter_quantity;
+		$data['filter_model'] = $filter_model;
+		$data['filter_product'] = $filter_product;
+
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

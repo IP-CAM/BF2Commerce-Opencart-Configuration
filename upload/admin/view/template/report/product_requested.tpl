@@ -24,48 +24,36 @@
                 <div class="input-group date">
                   <input type="text" name="filter_date_start" value="<?php echo $filter_date_start; ?>" placeholder="<?php echo $entry_date_start; ?>" data-date-format="YYYY-MM-DD" id="input-date-start" class="form-control" />
                   <span class="input-group-btn">
-                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                  </span></div>
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                  </span>
+                </div>
               </div>
               <div class="form-group">
                 <label class="control-label" for="input-date-end"><?php echo $entry_date_end; ?></label>
                 <div class="input-group date">
                   <input type="text" name="filter_date_end" value="<?php echo $filter_date_end; ?>" placeholder="<?php echo $entry_date_end; ?>" data-date-format="YYYY-MM-DD" id="input-date-end" class="form-control" />
                   <span class="input-group-btn">
-                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                  </span></div>
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                  </span>
+                </div>
               </div>
+              <div class="form-group">
+                <label class="control-label" for="input-product"><?php echo $entry_product; ?></label>
+                <input type="text" name="filter_product" value="<?php echo $filter_product; ?>" placeholder="<?php echo $entry_product; ?>" id="input-product" class="form-control" />
+              </div>             
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label class="control-label" for="input-status"><?php echo $entry_model; ?></label>
-                <select name="filter_order_status_id" id="input-status" class="form-control">
-                  <option value="0"><?php echo $text_all_status; ?></option>
-                  <?php foreach ($order_statuses as $order_status) { ?>
-                  <?php if ($order_status['order_status_id'] == $filter_order_status_id) { ?>
-                  <option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
-                  <?php } else { ?>
-                  <option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
-                  <?php } ?>
-                  <?php } ?>
-                </select>
+                <label class="control-label" for="input-model"><?php echo $entry_model; ?></label>
+                <input type="text" name="filter_model" value="<?php echo $filter_model; ?>" placeholder="<?php echo $entry_model; ?>" id="input-model" class="form-control" />
               </div>             
             </div>             
             <div class="col-sm-6">
               <div class="form-group">
-                <label class="control-label" for="input-status"><?php echo $entry_status; ?></label>
-                <select name="filter_order_status_id" id="input-status" class="form-control">
-                  <option value="0"><?php echo $text_all_status; ?></option>
-                  <?php foreach ($order_statuses as $order_status) { ?>
-                  <?php if ($order_status['order_status_id'] == $filter_order_status_id) { ?>
-                  <option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
-                  <?php } else { ?>
-                  <option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
-                  <?php } ?>
-                  <?php } ?>
-                </select>
-              </div>  
-              <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>           
+                <label class="control-label" for="input-quantity"><?php echo $entry_quantity; ?></label>
+                <input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" placeholder="<?php echo $entry_quantity; ?>" id="input-quantity" class="form-control" />
+              </div>
+              <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>             
             </div>
           </div>
         </div>
@@ -105,34 +93,47 @@
     </div>
   </div>
   <script type="text/javascript"><!--
-$('#button-filter').on('click', function() {
-	url = 'index.php?route=report/product_requested&token=<?php echo $token; ?>';
-	
-	var filter_date_start = $('input[name=\'filter_date_start\']').val();
-	
-	if (filter_date_start) {
-		url += '&filter_date_start=' + encodeURIComponent(filter_date_start);
-	}
+    $('#button-filter').on('click', function() {
+     url = 'index.php?route=report/product_requested&token=<?php echo $token; ?>';
 
-	var filter_date_end = $('input[name=\'filter_date_end\']').val();
-	
-	if (filter_date_end) {
-		url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
-	}
-	
-	var filter_order_status_id = $('select[name=\'filter_order_status_id\']').val();
-	
-	if (filter_order_status_id != 0) {
-		url += '&filter_order_status_id=' + encodeURIComponent(filter_order_status_id);
-	}	
+     var filter_date_start = $('input[name=\'filter_date_start\']').val();
 
-	location = url;
-});
-//--></script> 
+     if (filter_date_start) {
+      url += '&filter_date_start=' + encodeURIComponent(filter_date_start);
+    }
+
+    var filter_date_end = $('input[name=\'filter_date_end\']').val();
+
+    if (filter_date_end) {
+      url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
+    }
+
+    var filter_product = $('input[name=\'filter_product\']').val();
+
+    if (filter_product) {
+      url += '&filter_product=' + encodeURIComponent(filter_product);
+    }	
+
+    var filter_model = $('input[name=\'filter_model\']').val();
+
+    if (filter_model) {
+      url += '&filter_model=' + encodeURIComponent(filter_model);
+    } 
+
+    var filter_quantity = $('input[name=\'filter_quantity\']').val();
+
+    if (filter_quantity) {
+      url += '&filter_quantity=' + encodeURIComponent(filter_quantity);
+    } 
+
+
+    location = url;
+  });
+  //--></script> 
   <script type="text/javascript"><!--
-$('.date').datetimepicker({
-	pickTime: false
-});
-//--></script> 
-</div>
-<?php echo $footer; ?>
+    $('.date').datetimepicker({
+     pickTime: false
+   });
+   //--></script> 
+ </div>
+ <?php echo $footer; ?>

@@ -12,10 +12,11 @@ $_['column_date_end']   = 'Date End';
 $_['column_name']       = 'Product Name';
 $_['column_model']      = 'Model';
 $_['column_quantity']   = 'Quantity';
-$_['column_action']      = 'Action';
+$_['column_action']     = 'Action';
 
 // Entry
 $_['entry_date_start']  = 'Date Start';
 $_['entry_date_end']    = 'Date End';
-$_['entry_quantity']      = 'Quantity';
-$_['entry_model']      = 'Model';
+$_['entry_quantity']    = 'Quantity';
+$_['entry_model']      	= 'Model';
+$_['entry_product']     = 'Product';

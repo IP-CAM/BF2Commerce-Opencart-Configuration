@@ -59,6 +59,10 @@ class ControllerReportProductPurchased extends Controller {
 			'href' => $this->url->link('report/product_purchased', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
+
+
+		//carga do model de relatorio referente a produto
+
 		$this->load->model('report/product');
 
 		$data['products'] = array();
