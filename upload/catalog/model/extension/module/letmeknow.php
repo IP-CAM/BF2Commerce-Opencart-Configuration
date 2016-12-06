@@ -1,0 +1,25 @@
+<?php
+class ModelExtensionModuleLetMeKnow extends Model {
+	public function addLetMeKnow(array $data) {
+
+		$sql =  "INSERT INTO " . DB_PREFIX . "letmeknow SET
+					product_id 		= '" . (int)$data['product_id'] . "',
+					name 			= '" . $data['name'] . "',
+					email 			= '" . $data['email'] . "',
+					date_added  	= '" . $data['date_added'] . "',
+					date_modified 	= '" . $data['date_modified'] . "',
+					language_id 	= '" . (int)$data['language_id'] . "',
+					currency_id 	= '" . (int)$data['currency_id'] . "',
+					ip 				= '" . $data['ip'] . "',
+					forwarded_ip 	= '" . $data['forwarded_ip'] . "',
+					send 			= '" . (int)$data['send'] . "',
+				";
+
+		$this->db->query($sql);
+
+		$letmeknow_id = $this->db->getLastId();
+
+		return $letmeknow_id;
+	}
+}
+?>
