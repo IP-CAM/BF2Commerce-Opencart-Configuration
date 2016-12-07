@@ -135,5 +135,52 @@
      pickTime: false
    });
    //--></script> 
- </div>
- <?php echo $footer; ?>
+
+
+   <script type="text/javascript"><!--
+    $('input[name=\'filter_product\']').autocomplete({
+      'source': function(request, response) {
+        $.ajax({
+          url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+          dataType: 'json',
+          success: function(json) {
+            response($.map(json, function(item) {
+              return {
+                label: item['name'],
+                value: item['product_id']
+              }
+            }));
+          }
+        });
+      },
+      'select': function(item) {
+        $('input[name=\'filter_product\']').val(item['label']);
+      }
+    });
+
+    $('input[name=\'filter_model\']').autocomplete({
+      'source': function(request, response) {
+        $.ajax({
+          url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_model=' +  encodeURIComponent(request),
+          dataType: 'json',
+          success: function(json) {
+            response($.map(json, function(item) {
+              return {
+                label: item['model'],
+                value: item['product_id']
+              }
+            }));
+          }
+        });
+      },
+      'select': function(item) {
+        $('input[name=\'filter_model\']').val(item['label']);
+      }
+    });
+    //--></script>
+  </div>
+<?php echo $footer; ?>
+
+
+
+
