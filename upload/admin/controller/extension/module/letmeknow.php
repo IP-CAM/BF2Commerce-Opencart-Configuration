@@ -1,5 +1,6 @@
 <?php
 class ControllerExtensionModuleLetMeKnow extends Controller {
+
 	private $error = array();
 
 	public function index() {

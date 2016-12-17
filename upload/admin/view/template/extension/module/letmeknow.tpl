@@ -14,6 +14,7 @@
 	  </div>
       
 	  <h1><?php echo $heading_title; ?></h1>
+
 	  
       <ul class="breadcrumb">
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -31,6 +32,7 @@
       <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
     <?php } ?>
+
 	
 	
     <div class="panel panel-default">
@@ -49,6 +51,7 @@
               <div class="text-danger"><?php echo $error_name; ?></div>
               <?php } ?>
             </div>
+
           </div>
             <div class="form-group">
               <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
@@ -58,6 +61,7 @@
                   <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
                   <option value="0"><?php echo $text_disabled; ?></option>
                   <?php } else { ?>
+                  
                   <option value="1"><?php echo $text_enabled; ?></option>
                   <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
                   <?php } ?>
